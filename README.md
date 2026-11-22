@@ -24,10 +24,6 @@ Log startu: `backend/logs/server.log`. Ponowne uruchomienie START korzysta z dzi
 
 ## Test na telefonie
 
-Alternatywne uruchomienie przez Docker Desktop: kliknij `START_DOCKER.cmd`.
-Adres: `http://localhost:8080/`. Zatrzymanie: `STOP_DOCKER.cmd`.
-Pełna instrukcja: [docs/docker.md](docs/docker.md).
-
 Uruchom `START_TELEFON.cmd` (jest również w `frontend`). Starter przełącza własny
 serwer na tryb sieci lokalnej i wypisuje **ADRES NA TELEFON** z bieżącym IPv4.
 Adres zapisuje też w `backend/logs/telefon_url.txt`. Komputer i telefon muszą być
