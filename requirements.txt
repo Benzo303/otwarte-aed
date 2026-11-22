@@ -1,0 +1,10 @@
+openpyxl
+fastapi
+uvicorn
+python-multipart
+requests
+reportlab
+svglib
+python-pptx
+-r backend/requirements.txt
+-r branding/requirements.txt

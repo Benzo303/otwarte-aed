@@ -1,0 +1,47 @@
+{
+  "name": "otwarte-aed",
+  "services": {
+    "aed": {
+      "build": {
+        "context": ".",
+        "dockerfile": "Dockerfile"
+      },
+      "init": true,
+      "restart": "unless-stopped",
+      "ports": [
+        "${AED_BIND_HOST:-127.0.0.1}:8080:8000"
+      ],
+      "environment": {
+        "AED_AREA": "polska",
+        "AED_OFFLINE": "${AED_OFFLINE:-true}",
+        "AED_CITY_OFFLINE": "${AED_CITY_OFFLINE:-false}",
+        "AED_LISTEN_HOST": "0.0.0.0",
+        "AED_PUBLIC_BASE_URL": "${AED_PUBLIC_BASE_URL:-https://aed.example.org}",
+        "AED_GEOCODER_URL": "${AED_GEOCODER_URL:-https://nominatim.openstreetmap.org/search}"
+      },
+      "volumes": [
+        "aed_cache:/app/backend/data/cache",
+        "aed_exports:/app/backend/exports",
+        "aed_state:/app/backend/data/state"
+      ],
+      "healthcheck": {
+        "test": [
+          "CMD",
+          "/app/.venv/bin/python",
+          "-c",
+          "import json,urllib.request; d=json.load(urllib.request.urlopen('http://127.0.0.1:8000/api/health',timeout=4)); assert d.get('ready') is True and d.get('records',0)>0"
+        ],
+        "start_period": "60s",
+        "interval": "15s",
+        "timeout": "5s",
+        "retries": 5
+      },
+      "stop_grace_period": "15s"
+    }
+  },
+  "volumes": {
+    "aed_cache": {},
+    "aed_exports": {},
+    "aed_state": {}
+  }
+}

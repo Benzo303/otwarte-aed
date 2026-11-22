@@ -1,0 +1,32 @@
+KOPIA PROJEKTU OTWARTE AED DO PRZESLANIA NA GITHUB
+
+To osobna kopia. Oryginalny projekt misja-aed pozostaje bez zmian.
+Kod i pozostale skopiowane pliki sa identyczne bajt w bajt z oryginalami
+(weryfikacja SHA-256). Dodano tylko ten plik instrukcji.
+
+JAK PRZESLAC BEZ INSTALOWANIA GITA
+1. Na github.com utworz prywatne repozytorium otwarte-aed.
+   Zaznacz utworzenie README podczas zakladania repozytorium.
+2. Otworz repozytorium i wybierz Add file > Upload files.
+3. Przeciagnij jeden z katalogow TEJ KOPII, np. frontend, do przegladarki.
+4. Wpisz opis i zatwierdz Commit changes.
+5. Powtorz osobno dla backend, branding, data_standard i docs.
+6. Osobno przeslij pliki znajdujace sie bezposrednio w tym folderze.
+   README.md z projektu moze zastapic poczatkowy README z GitHuba.
+
+W katalogu glownym repozytorium maja byc od razu backend, frontend itd.
+Przesylaj rozpakowane pliki i katalogi. GitHub nie rozpakuje ZIP-a jako kodu.
+Limit jednej partii: 100 plikow. Limit pojedynczego pliku: 25 MiB.
+Kazdy z pieciu katalogow tej kopii miesci sie w limicie jednej partii.
+
+CELOWO POMINIETO
+- .venv, .git, .qa, node_modules, __pycache__ i cache narzedzi;
+- backupy lokalnego srodowiska Python oraz pliki .pyc/.pyo;
+- backend/logs i backend/data/state (lokalne logi i baza zgloszen);
+- backend/exports i backend/exports_demo (wygenerowane eksporty);
+- lokalne pliki .env z konfiguracja, jesli wystepowaly.
+Zachowano backend/data/cache, kod zrodlowy, testy, lokalne biblioteki
+frontendu, wzorzec XLSX, branding, prezentacje i zrzuty ekranu.
+
+Kopia sluzy do umieszczenia kodu na GitHubie. Dostosowanie aplikacji
+do Vercel jest osobnym etapem i nie zostalo tutaj wykonane.
