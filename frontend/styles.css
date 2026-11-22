@@ -56,3 +56,13 @@ html[data-contrast=high] .information-quality h3,html[data-contrast=high] .infor
 html[data-contrast=high] .information-quality .confidence-track{background:#000;border:1px solid #ffed00;height:12px}
 html[data-contrast=high] .information-quality .confidence-track span{background:#ffed00}
 @media(prefers-reduced-motion:reduce){.information-quality .confidence-track span{animation:none;transition:none}}
+
+/* Preserve card typography with the corrected heading hierarchy. */
+.rescue-card h4{font-size:1.15rem;margin:8px 0 12px;overflow-wrap:anywhere}
+
+/* Keep the emergency link readable at 320 CSS px with 200% text and WCAG spacing. */
+.simple-emergency{max-width:100%;flex-wrap:wrap}
+.simple-emergency>span{min-width:0;overflow-wrap:anywhere}
+
+/* Long Polish words and URLs must reflow when text spacing is increased. */
+body{overflow-wrap:anywhere}

@@ -61,6 +61,12 @@ trigger.addEventListener('click',()=>drawerState.open?closeTools():openTools('to
 $('tools-close').addEventListener('click',()=>closeTools());backdrop.addEventListener('click',()=>closeTools());
 $('tools-pin').addEventListener('click',()=>{pin(!drawerState.pinned);if(!drawerState.pinned&&!hovering&&!panel.contains(document.activeElement))leave({pointerType:'mouse',relatedTarget:null});});
 panel.addEventListener('focusin',()=>clearTimeout(closeTimer));
+// Leaving a non-modal desktop panel must reveal the newly focused page control.
+// Pinning prevents pointer auto-close while editing inside the panel.
+document.addEventListener('focusin',event=>{
+  if(drawerState.open&&hoverMode()&&!shell.contains(event.target)&&!$('aed-dialog').open)
+    closeTools({restoreFocus:false});
+});
 panel.addEventListener('focusout',()=>Promise.resolve().then(()=>{if(!hovering&&hoverMode()&&!drawerState.pinned&&!panel.contains(document.activeElement))closeTimer=setTimeout(()=>closeTools({restoreFocus:false}),350);}));
 function focusable(){
   return [...shell.querySelectorAll('button,a[href],input,select,textarea,summary,[tabindex]')].filter(node=>{

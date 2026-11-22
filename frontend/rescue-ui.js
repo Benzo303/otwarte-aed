@@ -111,13 +111,13 @@ function renderRescue(data){
   for(const row of data.top3.slice(0,3)){
     const estimate=walkingEstimate(data.origin.lat,data.origin.lon,row.lat,row.lon);
     const card=E('article',undefined,`rescue-card${row.rank===1?' best':''}`);
-    card.append(E('span',row.rank===1?(state.origin?.kind==='gps'?'Najbliżej Ciebie':'Najbliżej wskazanego miejsca'):'Inne otwarte miejsce','rescue-rank'),E('h3',aedName(row)),E('span','✓ Otwarty teraz','badge open'));
+    card.append(E('span',row.rank===1?(state.origin?.kind==='gps'?'Najbliżej Ciebie':'Najbliżej wskazanego miejsca'):'Inne otwarte miejsce','rescue-rank'),E('h4',aedName(row)),E('span','✓ Otwarty teraz','badge open'));
     card.append(E('p',estimate.walking_time_seconds<60?'Mniej niż minuta pieszo':`Około ${Math.ceil(estimate.walking_time_seconds/60)} min pieszo`,'rescue-time'));
     card.append(E('p',row.opis_lokalizacji_wewnatrz||'Sprawdź dokładne miejsce na karcie urządzenia.','card-description'));
     if(row.ulica_numer)card.append(E('p',row.ulica_numer));
     const actions=E('div',undefined,'form-actions');
     const nav=E('a','Prowadź do tego AED','button button-blue');
-    const href=safeURL(row.navigation_url);if(href){const url=new URL(href);if(state.origin?.kind==='search')url.searchParams.delete('origin');nav.href=url.href;}nav.target='_blank';nav.rel='noopener noreferrer';nav.setAttribute('aria-label',`Prowadź do ${aedName(row)} — otwiera nawigację w nowej karcie`);
+    const href=safeURL(row.navigation_url);if(href){const url=new URL(href);if(state.origin?.kind==='search')url.searchParams.delete('origin');nav.href=url.href;}nav.target='_blank';nav.rel='noopener noreferrer';nav.setAttribute('aria-label',`Prowadź do tego AED: ${aedName(row)} — otwiera nawigację w nowej karcie`);
     const details=E('button','Jak znaleźć urządzenie','button button-light');details.addEventListener('click',()=>{routeTo(row);showDetails(row,details);});
     const read=E('button','Czytaj na głos','button button-light');read.addEventListener('click',()=>speak(rescueText(row,estimate)));
     actions.append(nav,details,read);card.append(actions);panel.append(card);

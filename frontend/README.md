@@ -48,7 +48,7 @@ Uchwyt: „Pomoc, RKO i narzędzia ☰”.
 
 - Desktop: szerokość ≥900 px, `hover:hover` i `pointer:fine`; pointerenter 120 ms,
   pointerleave 350 ms. Przejście z uchwytu do panelu nie zamyka go.
-  Przypięcie utrzymuje panel otwarty. Fokus wewnątrz również chroni wpisywanie.
+  Przypięcie utrzymuje panel otwarty podczas używania narzędzi. Powrót fokusu do treści głównej zamyka panel, aby nie zasłaniać wybranego elementu.
 - Telefon/tablet/małe okno: hover jest ignorowany. Kliknięcie otwiera panel
   z tłem, blokadą przewijania i `inert` na treści głównej. Fokus pozostaje
   w panelu. Zamknięcie uchwytem, przyciskiem, tłem lub Escape oddaje fokus.
@@ -101,3 +101,5 @@ Backend i zasady ratunkowe: [funkcje_ratunkowe.md](../docs/funkcje_ratunkowe.md)
 Źródła wskazówek: [ERC 2025](https://www.erc.edu/media/wrhj5sye/gl2025-04-bls-e.pdf).
 Instrukcje dotyczą osoby dorosłej, po braku reakcji od razu wskazują 112,
 uwzględniają oddech agonalny i wyjątek urazu dla pozycji bocznej.
+
+Odświeżanie dostępności co minutę można wstrzymać w dodatkowych filtrach. Nie zastępuje ono elementów listy, mapy ani narzędzi, gdy użytkownik pracuje tam klawiaturą. Nazwy dostępności przycisków zawierają widoczne etykiety, także przy sterowaniu głosem.

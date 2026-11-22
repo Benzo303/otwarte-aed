@@ -23,7 +23,7 @@ function applyPreferences() {
   document.documentElement.dataset.contrast=highContrast?'high':'normal';
   $('contrast-toggle').setAttribute('aria-pressed',String(highContrast));
   $('font-value').textContent=`${fontSize}%`;
-  $('font-toggle').setAttribute('aria-label',`Powiększ tekst: obecnie ${fontSize} procent. Następny poziom ${fontSizes[(fontSizes.indexOf(fontSize)+1)%fontSizes.length]} procent.`);
+  $('font-toggle').setAttribute('aria-label',`Powiększ napisy: ${fontSize}%. Następny poziom ${fontSizes[(fontSizes.indexOf(fontSize)+1)%fontSizes.length]}%.`);
   if (state.map) requestAnimationFrame(()=>state.map.invalidateSize());
 }
 applyPreferences();
@@ -300,7 +300,7 @@ function renderValidation(report) {
   $('validation-summary').replaceChildren(element('p',report.valid?`Dane poprawne. Poprawne wiersze: ${report.rows_valid} z ${report.rows_total}.`:`Wymagane poprawki. Poprawne wiersze: ${report.rows_valid} z ${report.rows_total}. Odrzucone: ${report.rows_invalid}.`,`notice ${report.valid?'success':'error'}`));
   $('validation-errors').replaceChildren();$('validation-warnings').replaceChildren();
   if(report.errors?.length){
-    const wrapper=element('div',undefined,'validation-table-wrap');wrapper.tabIndex=0;wrapper.setAttribute('aria-label','Tabela błędów walidacji; przewijana');
+    const wrapper=element('div',undefined,'validation-table-wrap');wrapper.tabIndex=0;wrapper.setAttribute('role','region');wrapper.setAttribute('aria-label','Tabela błędów walidacji; przewijana');
     const table=element('table');table.append(element('caption',`Co poprawić — ${report.errors.length} błędów`));
     const head=element('thead');const tr=element('tr');for(const label of ['Wiersz','Pole','Jak poprawić']){const th=element('th',label);th.scope='col';tr.append(th);}head.append(tr);table.append(head);
     const body=element('tbody');for(const error of report.errors.slice(0,200)){const tr=element('tr');tr.append(element('td',error.row??'—'),element('td',error.field||'Struktura pliku'),element('td',error.message));body.append(tr);}table.append(body);wrapper.append(table);$('validation-errors').append(wrapper);
@@ -408,5 +408,5 @@ if(['wszystkie','danegov','osm'].includes(initialFilters.get('zrodlo')))$('sourc
 if(['true','false'].includes(initialFilters.get('tylko_otwarte_teraz')))$('open-now').checked=initialFilters.get('tylko_otwarte_teraz')==='true';
 if(deepID){$('open-now').checked=false;$('city-filter').value='';$('source-filter').value='wszystkie';notice('map-alert','Otwierasz urządzenie z kodu. Sprawdź, czy jest dostępne.');}
 initMap();setView(location.hash.slice(1));loadAED({deep:true,resolveCity:!deepID&&!!initialFilters.get('miasto')});
-setInterval(()=>{if(state.view==='mapa'&&!document.hidden&&!$('aed-dialog').open)loadAED();},60000);
+setInterval(()=>{if($('auto-refresh').checked&&state.view==='mapa'&&!document.hidden&&!$('aed-dialog').open&&!document.activeElement?.closest('#results-panel,#map,#tools-drawer'))loadAED();},60000);
 export {state,loadAED,setView,showDetails,fitMap};
