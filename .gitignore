@@ -1,0 +1,9 @@
+.venv/
+.venv_backup_*/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.qa/
+node_modules/
+backend/logs/
+backend/data/state/
