@@ -1,0 +1,16 @@
+.git
+.venv
+.venv_backup_*
+.qa
+**/__pycache__
+**/*.pyc
+**/node_modules
+backend/logs
+backend/data/state
+backend/exports
+backend/exports_demo
+branding
+docs
+*.cmd
+.env
+.env.*
