@@ -43,3 +43,16 @@ html[data-large-text=true] .map-layout,html[data-large-text=true] .rescue-grid{g
 .campaign-home{display:block;flex:0 1 350px;max-width:350px;text-decoration:none}.simple-brand img.campaign-logo{display:block;width:100%;height:auto;max-width:350px}.simple-brand img.campaign-logo-contrast{display:none}.campaign-caption{min-width:140px}.simple-brand{gap:18px}.simple-brand h1{font-size:1.15rem}.campaign-caption .prototype-note{display:block}html[data-contrast=high] .campaign-logo{display:none!important}html[data-contrast=high] img.campaign-logo-contrast{display:block!important}
 @media(max-width:899px){.simple-brand{width:100%;flex-wrap:wrap;gap:8px 18px}.campaign-home{flex:1 1 260px;max-width:350px}.campaign-caption{flex:1 1 160px}.simple-brand img.campaign-logo{width:100%;height:auto}.simple-header-inner{gap:12px}}
 @media(max-width:520px){.campaign-caption{position:absolute;width:1px;height:1px;min-width:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}}
+
+/* Krótka ocena informacji w karcie AED; szczegóły pozostają w panelu dysponenta. */
+.information-quality{margin-top:20px;padding:16px;border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:3px;background:var(--soft);color:var(--ink)}
+.information-quality-header{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:6px 16px}
+.information-quality-header h3{margin:0;font-size:1.05rem;line-height:1.4}
+.information-quality-value{color:var(--navy);font-size:1.3rem;line-height:1.4;font-variant-numeric:tabular-nums}
+.information-quality .confidence-track{margin:10px 0;height:10px}
+.information-quality-help,.information-quality-date{margin:8px 0 0;color:var(--muted);font-size:1rem;line-height:1.5}
+html[data-contrast=high] .information-quality{background:#000;color:#ffed00;border-color:#ffed00}
+html[data-contrast=high] .information-quality h3,html[data-contrast=high] .information-quality-value,html[data-contrast=high] .information-quality-help,html[data-contrast=high] .information-quality-date{color:#ffed00}
+html[data-contrast=high] .information-quality .confidence-track{background:#000;border:1px solid #ffed00;height:12px}
+html[data-contrast=high] .information-quality .confidence-track span{background:#ffed00}
+@media(prefers-reduced-motion:reduce){.information-quality .confidence-track span{animation:none;transition:none}}

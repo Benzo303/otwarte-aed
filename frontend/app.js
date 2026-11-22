@@ -226,16 +226,26 @@ function showDetails(row,trigger) {
   detail.append(title,element('p',address(row),'detail-address'),location);
   if(row.field_access_alert||['closed','locked'].includes(accessState(row).kind))detail.append(element('p','To urządzenie może być zamknięte lub uszkodzone. Wybierz inne otwarte miejsce.','notice critical'));
   if(row.status_techniczny==='niezweryfikowany')detail.append(element('p','Opiekun nie potwierdził stanu urządzenia.','field-help'));
-  if(row.last_field_verification)detail.append(element('p',`Ostatnie zgłoszenie z miejsca: ${new Date(row.last_field_verification).toLocaleString('pl-PL')}`,'field-help'));
   const nav=element('a','Prowadź pieszo','button button-blue');
   const params=new URLSearchParams({api:1,destination:`${row.lat},${row.lon}`,travelmode:'walking'});
   if(state.origin&&state.origin.kind!=='search')params.set('origin',`${state.origin.lat},${state.origin.lon}`);
   nav.href=`https://www.google.com/maps/dir/?${params}`;nav.target='_blank';nav.rel='noopener noreferrer';nav.setAttribute('aria-label','Prowadź pieszo — otwiera nawigację w nowej karcie');detail.append(nav);
+  const score=confidence(row.confidence_score);
+  const hasScore=(typeof row.confidence_score==='number'||(typeof row.confidence_score==='string'&&row.confidence_score.trim()!==''))&&Number.isFinite(Number(row.confidence_score));
+  const quality=element('section',undefined,'information-quality');quality.setAttribute('aria-labelledby','information-quality-title');
+  const qualityHeader=element('div',undefined,'information-quality-header');
+  const qualityTitle=element('h3','Jakość informacji');qualityTitle.id='information-quality-title';
+  qualityHeader.append(qualityTitle,element('strong',hasScore?`${score.toLocaleString('pl-PL',{maximumFractionDigits:1})}%`:'Brak oceny','information-quality-value'));
+  quality.append(qualityHeader);
+  if(hasScore){const qualityTrack=element('div',undefined,'confidence-track');qualityTrack.setAttribute('aria-hidden','true');const qualityBar=element('span');qualityBar.style.width=`${score}%`;qualityTrack.append(qualityBar);quality.append(qualityTrack);}
+  quality.append(element('p','Ocena kompletności danych i ich źródeł.','information-quality-help'));
+  const fieldDate=row.last_field_verification?new Date(row.last_field_verification):null;
+  quality.append(element('p',fieldDate&&Number.isFinite(fieldDate.getTime())?`Ostatnie zgłoszenie z miejsca: ${fieldDate.toLocaleString('pl-PL')}`:'Brak zgłoszeń z miejsca.','information-quality-date'));
+  detail.append(quality);
   const expert=$('expert-device');expert.replaceChildren(element('h3',aedName(row)));
   const definition=element('dl',undefined,'detail-grid');
   const values=[['Godziny dostępu',row.godziny_otwarcia_osm||'Brak potwierdzonego harmonogramu'],['Klucz lub kod',row.wymagany_klucz_lub_kod||'Brak danych'],['Stan techniczny w źródle',({sprawny:'Sprawny',serwis:'Serwis',niezweryfikowany:'Niezweryfikowany'})[row.status_techniczny]||'Brak danych'],['Dostępność bez barier',({tak:'Tak',nie:'Nie',niezweryfikowano:'Niezweryfikowana'})[row.dostepnosc_niepelnosprawni]||'Brak danych'],['Ostatnia aktualizacja źródła',row.data_aktualizacji||'Brak potwierdzonej daty'],['Ostatnia weryfikacja terenowa',row.last_field_verification?new Date(row.last_field_verification).toLocaleString('pl-PL'):'Brak zgłoszeń'],['Identyfikator AED',row.id_aed]];
   values.forEach(([label,value])=>{const group=element('div');group.append(element('dt',label),element('dd',value));definition.append(group);});expert.append(definition);
-  const score=confidence(row.confidence_score);
   expert.append(element('h3',`Wiarygodność danych (Confidence Score): ${score}%`));
   const track=element('div',undefined,'confidence-track');track.setAttribute('aria-hidden','true');const bar=element('span');bar.style.width=`${score}%`;track.append(bar);expert.append(track,element('p','Wskaźnik mierzy kompletność informacji z premią 10 pkt za instytucjonalne źródło dane.gov.pl. Nie potwierdza sprawności urządzenia.','detail-footnote'));
   if(Object.keys(row.conflicts||{}).length)expert.append(element('p','Źródła podają rozbieżne informacje. Sprawdź źródła referencyjne.','notice'));

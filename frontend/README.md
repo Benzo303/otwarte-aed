@@ -19,8 +19,11 @@ Nie otwieraj samego `index.html` przez `file://` — aplikacja wymaga API FastAP
 
 Nagłówek z numerem 112, asystent dwóch pytań, jedno pole miejscowości/ulicy
 i mapa z krótką listą. Domyślnie wszystkie źródła i tylko urządzenia otwarte,
-bez wymogu klucza. Na ekranie i prostej karcie AED nie ma wskaźników jakości,
-surowych harmonogramów ani nazw formatów technicznych.
+bez wymogu klucza. Główny ekran pozostaje prosty, bez surowych harmonogramów ani nazw formatów technicznych.
+Karta AED pokazuje krótki wskaźnik „Jakość informacji” z procentem, paskiem
+i datą ostatniego zgłoszenia z miejsca. Szczegółowy Confidence Score i opis
+jego obliczania pozostają w strefie dysponenta. Wskaźnik dotyczy kompletności
+danych i ich źródeł; stan urządzenia jest prezentowany osobno.
 
 Po wyszukaniu tekstowym lub GPS pojawiają się najwyżej trzy karty otwartych AED:
 miejsce w budynku, szacowany marsz, nawigacja piesza, głos i szczegóły.
@@ -66,7 +69,7 @@ w strefie dysponenta; po wybraniu AED automatycznie wpisuje jego identyfikator i
 
 Python `qrcode` tworzy SVG z odnośnikiem `/?aed=ID`. Link otwiera prostą kartę
 również dla zamkniętego urządzenia. Trzy zgłoszenia to Działa/Zamknięte/Uszkodzone;
-backend zapisuje je w SQLite. Dane eksperckie wybranego AED są w strefie urzędu.
+backend zapisuje je lokalnie w SQLite, a we wdrożeniu Vercel w PostgreSQL. Dane eksperckie wybranego AED są w strefie urzędu.
 Generator wymaga istniejącego ID. Przed drukiem ustaw osiągalny publiczny adres,
 ponieważ localhost odnosi się do telefonu skanującego. Druk obejmuje samą tabliczkę.
 
