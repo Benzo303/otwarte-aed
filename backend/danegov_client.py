@@ -33,7 +33,8 @@ from openpyxl import load_workbook
 from .normalizer import attach_source, canonical_values, decimal, clean, haversine
 
 BASE_URL = "https://api.dane.gov.pl/1.4"
-CACHE_PATH = Path(__file__).resolve().parent / "data/cache/danegov_cache.json"
+from .runtime_paths import cache_dir
+CACHE_PATH = cache_dir() / "danegov_cache.json"
 FORMATS = {"csv", "json", "geojson", "xlsx", "xml"}
 QUERIES = ("AED", "defibrylator", "defibrylatory")
 MAX_BYTES, MAX_ROWS = 20 * 1024 * 1024, 50000

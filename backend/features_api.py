@@ -59,7 +59,7 @@ def passport_svg(row, base_url, name=None):
 <text x="845" y="535" font-family="Arial,sans-serif" text-anchor="middle" font-size="18" fill="#003366">LOKALIZACJA · GODZINY · WERYFIKACJA</text></svg>''',link
 
 
-def router_for(get_records,get_store,clock):
+def router_for(get_records,get_store,clock,*,before_read=None,response_factory=None,upload_limit=MAX_BYTES):
     router=APIRouter()
     def find(aid):
         return next((r for r in get_records() if r["id_aed"]==aid or aid in r.get("merged_ids",[])),None)
@@ -95,17 +95,21 @@ def router_for(get_records,get_store,clock):
         return Response(svg,media_type="image/svg+xml",headers={"Content-Disposition":f'inline; filename="paszport-aed.svg"'})
 
     @router.get("/api/danegov/audit")
-    def audit():return audit_cache()
+    def audit():
+        if before_read is not None:before_read()
+        return audit_cache()
 
     def save_import(payload):
         payload["import_id"]=get_store().save_import(payload,clock())
-        return payload
+        if payload["import_id"] is None:
+            payload["storage_notice"]="Plik został oczyszczony i można pobrać wynik. Zapis podglądu będzie dostępny po podłączeniu trwałej bazy danych."
+        return response_factory(payload) if response_factory is not None else payload
 
     @router.post("/api/chaos-import")
     async def chaos(file:UploadFile=File(...),geocode:bool=Form(False)):
         try:
-            content=await file.read(MAX_BYTES+1)
-            if len(content)>MAX_BYTES:raise HTTPException(413,"Limit pliku: 5 MiB.")
+            content=await file.read(upload_limit+1)
+            if len(content)>upload_limit:raise HTTPException(413,f"Limit pliku: {upload_limit//(1024*1024)} MiB.")
             try:
                 return await run_in_threadpool(lambda:save_import(clean_import(content,file.filename or "plik.csv",geocode=geocode)))
             except (ValueError,BadZipFile,KeyError,TypeError) as exc:raise HTTPException(422,str(exc)) from exc

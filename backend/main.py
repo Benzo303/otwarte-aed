@@ -9,7 +9,9 @@ from pathlib import Path
 from typing import Annotated, Literal
 
 from fastapi import FastAPI, File, Header, HTTPException, Query, UploadFile
-from fastapi.responses import Response, FileResponse
+from fastapi.responses import Response, FileResponse, StreamingResponse
+from starlette.middleware.gzip import GZipMiddleware
+from .cloud_responses import byte_chunks, streamed_json
 from fastapi.staticfiles import StaticFiles
 from starlette.concurrency import run_in_threadpool
 
@@ -25,7 +27,7 @@ from .normalizer import haversine, usable_coordinates
 
 
 def create_app(*, offline=None, include_demo=False, area=None, records=None, source_metadata=None,
-               public_base_url=None, clock=None, city_resolver=None, feature_store=None, location_resolver=None):
+               public_base_url=None, clock=None, city_resolver=None, feature_store=None, location_resolver=None, runtime=None):
     area = area or os.getenv("AED_AREA", "polska")
     if area not in AREAS:
         raise ValueError("Nieobsługiwany obszar AED_AREA.")
@@ -40,7 +42,9 @@ def create_app(*, offline=None, include_demo=False, area=None, records=None, sou
 
     @asynccontextmanager
     async def lifespan(app):
-        if records is None:
+        if runtime is not None:
+            prepared, report, bundle = await run_in_threadpool(runtime.start)
+        elif records is None:
             def prepare():
                 return build_snapshot(area=area, offline=offline, include_demo=include_demo, base_url=public_base_url)
             prepared, report, bundle = await run_in_threadpool(prepare)
@@ -52,16 +56,23 @@ def create_app(*, offline=None, include_demo=False, area=None, records=None, sou
             bundle = await run_in_threadpool(publication_bundle, prepared, base_url=public_base_url, area=area,
                                                   generated_at=clock(), source_info=metadata)
         app.state.snapshot = {"records": prepared, "report": report, "bundle": bundle}
-        app.state.feature_store=feature_store or FeatureStore(":memory:" if records is not None else STATE_PATH)
+        app.state.feature_store=feature_store or (runtime.store if runtime is not None else FeatureStore(":memory:" if records is not None else STATE_PATH))
         app.state.refresh_lock = asyncio.Lock()
         try:yield
         finally:
             if feature_store is None:app.state.feature_store.close()
 
     app = FastAPI(title="Otwarte AED", version="0.1.0", lifespan=lifespan)
+    if runtime is not None:app.add_middleware(GZipMiddleware,minimum_size=1024)
+    upload_limit=3*1024*1024 if runtime is not None else MAX_UPLOAD_BYTES
+    def current_snapshot():
+        if runtime is not None:app.state.snapshot=runtime.current(app.state.snapshot)
+        return app.state.snapshot
     def effective_records():
-        return app.state.feature_store.overlay(app.state.snapshot["records"],clock())
-    app.include_router(router_for(effective_records,lambda:app.state.feature_store,clock))
+        return app.state.feature_store.overlay(current_snapshot()["records"],clock())
+    app.include_router(router_for(effective_records,lambda:app.state.feature_store,clock,
+        before_read=current_snapshot,response_factory=streamed_json if runtime is not None else None,
+        upload_limit=upload_limit))
 
     @app.get('/api/location/search')
     def search_location(q: str=Query(min_length=2,max_length=200)):
@@ -75,7 +86,8 @@ def create_app(*, offline=None, include_demo=False, area=None, records=None, sou
         workspace_id = hashlib.sha256(os.path.normcase(str(root)).encode("utf-8")).hexdigest()[:16]
         return {"service": "otwarte-aed", "ready": True, "records": len(app.state.snapshot["records"]),
                 "pid": os.getpid(), "workspace_id": workspace_id,
-                "listen_host": os.getenv("AED_LISTEN_HOST", "127.0.0.1")}
+                "listen_host": os.getenv("AED_LISTEN_HOST", "127.0.0.1"),
+                **({"cloud":runtime.status()} if runtime is not None else {})}
 
     def stats(snapshot):
         report = snapshot["report"]
@@ -84,11 +96,12 @@ def create_app(*, offline=None, include_demo=False, area=None, records=None, sou
                 "osm_records": report["input_osm"], "danegov_records": report["input_danegov"],
                 "duplicates_merged": report["duplicates_merged"], "cross_source_groups": report["cross_source_groups"],
                 "integrated_records": len(snapshot["records"]), "osm": report["source"],
-                "sync_in_progress": app.state.refresh_lock.locked()}
+                "sync_in_progress": app.state.refresh_lock.locked(),
+                **({"persistence":runtime.status()} if runtime is not None else {})}
 
     @app.get("/api/sources/stats")
     def get_source_stats():
-        return stats(app.state.snapshot)
+        return stats(current_snapshot())
 
     @app.post("/api/danegov/refresh")
     async def refresh_danegov():
@@ -103,7 +116,7 @@ def create_app(*, offline=None, include_demo=False, area=None, records=None, sou
                     write_bundle(bundle, EXPORT_DIR)
                     (EXPORT_DIR / "pipeline_report.json").write_bytes(json_bytes(report))
                     return {"records": prepared, "report": report, "bundle": bundle}
-                snapshot = await run_in_threadpool(rebuild)
+                snapshot = await run_in_threadpool(runtime.refresh if runtime is not None else rebuild)
                 app.state.snapshot = snapshot  # Jedna atomowa podmiana dla API i eksportów.
             except (RuntimeError, ValueError, OSError) as exc:
                 raise HTTPException(503, f"Nie przebudowano zbioru; zachowano poprzednią migawkę. {exc}") from exc
@@ -119,7 +132,7 @@ def create_app(*, offline=None, include_demo=False, area=None, records=None, sou
                 radius_km: float=Query(default=15,ge=.5,le=50,allow_inf_nan=False)):
         if (lat is None)!=(lon is None):raise HTTPException(422,'Podaj jednocześnie szerokość i długość geograficzną.')
         now = clock()
-        snapshot = app.state.snapshot
+        snapshot = current_snapshot()
         city = None
         if miasto and miasto.strip():
             try:
@@ -148,24 +161,26 @@ def create_app(*, offline=None, include_demo=False, area=None, records=None, sou
                 continue
             selected.append({**row, **state,
                              **({"miejscowosc_wyszukiwania": city["name"]} if city and not row.get("miejscowosc") else {})})
-        return {"count": len(selected), "area": snapshot["report"]["area"], "evaluated_at": now.isoformat(),
+        result = {"count": len(selected), "area": snapshot["report"]["area"], "evaluated_at": now.isoformat(),
                 "timezone": "Europe/Warsaw", "source": snapshot["report"]["source"],
                 "scope": {"national_records": len(snapshot["records"]), "danegov_points": gov_count,
                           "osm_points": osm_count, "matched_before_availability": matched_before_availability},
                 "filters": {"miasto": miasto, "zrodlo": zrodlo, "tylko_otwarte_teraz": tylko_otwarte_teraz},
                 "city": public_city(city),
                 "items": selected}
+        return streamed_json(result) if runtime is not None else result
 
     @app.post("/api/validate-upload")
     async def upload(file: Annotated[UploadFile, File(description="Wzorzec XLSX lub CSV UTF-8")]):
         try:
             if Path(file.filename or "").suffix.lower() not in (".csv", ".xlsx"):
                 raise HTTPException(415, "Obsługiwane pliki: .xlsx i .csv.")
-            payload = await file.read(MAX_UPLOAD_BYTES + 1)
-            if len(payload) > MAX_UPLOAD_BYTES:
-                raise HTTPException(413, "Limit pliku: 5 MiB.")
+            payload = await file.read(upload_limit + 1)
+            if len(payload) > upload_limit:
+                raise HTTPException(413, f"Limit pliku: {upload_limit//(1024*1024)} MiB.")
             try:
-                return await run_in_threadpool(validate_upload, payload, file.filename)
+                result = await run_in_threadpool(validate_upload, payload, file.filename)
+                return streamed_json(result) if runtime is not None else result
             except (ValueError, TypeError) as exc:
                 raise HTTPException(400, str(exc)) from exc
         finally:
@@ -182,7 +197,7 @@ def create_app(*, offline=None, include_demo=False, area=None, records=None, sou
         if format not in formats:
             raise HTTPException(404, "Dostępne formaty: csv, json, geojson, xml, payload, md5.")
         filename, media_type = formats[format]
-        bundle = app.state.snapshot["bundle"]
+        bundle = current_snapshot()["bundle"]
         if format == "md5":
             import hashlib
             payload = (hashlib.md5(bundle["harvester_metadata.xml"]).hexdigest() + "\n").encode("ascii")
@@ -196,7 +211,9 @@ def create_app(*, offline=None, include_demo=False, area=None, records=None, sou
                 return Response(status_code=416, headers={"Content-Range": f"bytes */{size}"})
             start = int(match[1]); end = min(int(match[2]) if match[2] else size - 1, size - 1)
             headers["Content-Range"] = f"bytes {start}-{end}/{size}"
+            if runtime is not None:return StreamingResponse(byte_chunks(payload[start:end+1]),status_code=206,media_type=media_type,headers=headers)
             return Response(payload[start:end + 1], status_code=206, media_type=media_type, headers=headers)
+        if runtime is not None:return StreamingResponse(byte_chunks(payload),media_type=media_type,headers=headers)
         return Response(payload, media_type=media_type, headers=headers)
 
     frontend_dir = Path(__file__).resolve().parents[1] / "frontend"

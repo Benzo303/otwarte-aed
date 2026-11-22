@@ -9,7 +9,8 @@ from .city_search import CityResolver, CitySearchError, city_key
 from .normalizer import haversine
 from .quality_audit import in_poland
 
-CACHE_PATH=Path(__file__).parent/'data/cache/locations.json'
+from .runtime_paths import cache_dir
+CACHE_PATH=cache_dir()/'locations.json'
 
 
 class LocationResolver:

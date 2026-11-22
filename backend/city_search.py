@@ -20,7 +20,8 @@ from datetime import datetime, timezone
 
 import requests
 
-CACHE_PATH = Path(__file__).resolve().parent / "data/cache/city_boundaries.json"
+from .runtime_paths import cache_dir
+CACHE_PATH = cache_dir() / "city_boundaries.json"
 DEFAULT_URL = "https://nominatim.openstreetmap.org/search"
 
 

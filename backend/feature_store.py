@@ -40,30 +40,7 @@ class FeatureStore:
     def overlay(self, records, now):
         with self.lock:
             reports = [dict(r) for r in self.db.execute("SELECT * FROM reports ORDER BY created_at DESC,id DESC")]
-        latest, adverse, counts = {}, {}, {}
-        cutoff = now.astimezone(timezone.utc) - timedelta(hours=24)
-        for r in reports:
-            aid = r["aed_id"]
-            latest.setdefault(aid, r)
-            counts[aid] = counts.get(aid, 0) + 1
-            if r["kind"] in ("closed", "damaged") and datetime.fromisoformat(r["created_at"]) >= cutoff:
-                adverse.setdefault(aid, r)
-        output = []
-        for row in records:
-            ids = [row["id_aed"], *row.get("merged_ids", [])]
-            matches = [latest[i] for i in ids if i in latest]
-            if not matches:
-                output.append(row); continue
-            last = max(matches, key=lambda r: r["created_at"])
-            alerts = [adverse[i] for i in ids if i in adverse]
-            # Pozytywne anonimowe zgłoszenie nie kasuje świeżego ostrzeżenia o uszkodzeniu.
-            alert = max(alerts, key=lambda r: (r["kind"] == "damaged", r["created_at"])) if alerts else None
-            output.append({**row, "last_field_verification": last["created_at"], "field_report": last,
-                           "field_reports_count": sum(counts.get(i, 0) for i in set(ids)),
-                           "field_access_alert": alert["kind"] if alert else None,
-                           "field_alert_until": (datetime.fromisoformat(alert["created_at"]) + timedelta(hours=24)).isoformat() if alert else None,
-                           "confidence_score": round(max(0, min(100, row.get("confidence_score", 0) + (-10 if alert else 5 if last["kind"]=="working" else -5))), 1)})
-        return output
+        return overlay_reports(records, reports, now)
 
     def save_import(self, payload, now):
         identifier = uuid4().hex
@@ -84,3 +61,31 @@ class FeatureStore:
             rows = self.db.execute("SELECT id,payload FROM imports WHERE active=1 ORDER BY created_at DESC LIMIT 20").fetchall()
         return [{**r, "is_preview": True, "import_id": batch["id"]} for batch in rows
                 for r in json.loads(batch["payload"]).get("normalized_json", [])]
+
+
+def overlay_reports(records, reports, now):
+    latest, adverse, counts = {}, {}, {}
+    cutoff = now.astimezone(timezone.utc) - timedelta(hours=24)
+    for r in reports:
+        aid = r["aed_id"]
+        latest.setdefault(aid, r)
+        counts[aid] = counts.get(aid, 0) + 1
+        if r["kind"] in ("closed", "damaged") and datetime.fromisoformat(r["created_at"]) >= cutoff:
+            adverse.setdefault(aid, r)
+    output = []
+    for row in records:
+        ids = [row["id_aed"], *row.get("merged_ids", [])]
+        matches = [latest[i] for i in ids if i in latest]
+        if not matches:
+            output.append(row); continue
+        last = max(matches, key=lambda r: r["created_at"])
+        alerts = [adverse[i] for i in ids if i in adverse]
+        # Pozytywne anonimowe zgłoszenie nie kasuje świeżego ostrzeżenia o uszkodzeniu.
+        alert = max(alerts, key=lambda r: (r["kind"] == "damaged", r["created_at"])) if alerts else None
+        output.append({**row, "last_field_verification": last["created_at"], "field_report": last,
+                       "field_reports_count": sum(counts.get(i, 0) for i in set(ids)),
+                       "field_access_alert": alert["kind"] if alert else None,
+                       "field_alert_until": (datetime.fromisoformat(alert["created_at"]) + timedelta(hours=24)).isoformat() if alert else None,
+                       "confidence_score": round(max(0, min(100, row.get("confidence_score", 0) + (-10 if alert else 5 if last["kind"]=="working" else -5))), 1)})
+    return output
+

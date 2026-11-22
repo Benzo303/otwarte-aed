@@ -201,12 +201,14 @@ function renderImport(data){
   const issues=$('chaos-issues');issues.replaceChildren();const details=E('details');details.append(E('summary',`Zmiany i błędy (${data.changes.length+data.errors.length})`));const list=E('ul');
   for(const item of [...data.errors,...data.changes].slice(0,100))list.append(E('li',`Wiersz ${item.row}: ${item.message}`));
   for(const row of data.quality.slice(0,10))list.append(E('li',`${row.id_aed}: ${row.errors.map(e=>e.field).join(', ')} — pola do uzupełnienia.`));details.append(list);issues.append(details);
-  for(const id of ['chaos-json','chaos-csv','chaos-preview'])$(id).disabled=!data.output_records;
+  for(const id of ['chaos-json','chaos-csv'])$(id).disabled=!data.output_records;
+  $('chaos-preview').disabled=!data.output_records||!data.import_id;
+  if(data.storage_notice)$('chaos-summary').append(E('p',data.storage_notice,'notice warning'));
 }
 $('chaos-form').addEventListener('submit',async event=>{
   event.preventDefault();const file=$('chaos-file').files[0],url=$('bip-url').value.trim(),geocode=$('chaos-geocode').checked;
   if(Boolean(file)===Boolean(url)){notice('chaos-message','Wybierz jeden plik albo podaj jeden adres strony.','error');return;}
-  if(file&&file.size>5*1024*1024){notice('chaos-message','Plik przekracza 5 MiB.','error');return;}
+  if(file&&file.size>3*1024*1024){notice('chaos-message','Plik przekracza 3 MiB.','error');return;}
   $('chaos-submit').disabled=true;$('chaos-form').setAttribute('aria-busy','true');$('chaos-results').hidden=true;notice('chaos-message','Odczytuję dane i sprawdzam współrzędne. Import z geokodowaniem może potrwać dłużej.');
   try{let data;if(file){const form=new FormData();form.append('file',file);form.append('geocode',String(geocode));data=await api('/api/chaos-import',{method:'POST',body:form},120000);}else data=await api('/api/import/bip-url',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({url,geocode})},120000);renderImport(data);notice('chaos-message','Import zakończony. Sprawdź raport przed pobraniem.','success');}
   catch(error){notice('chaos-message',error.name==='AbortError'?'Import przekroczył czas. Spróbuj mniejszego pliku.':error.message,'error');}

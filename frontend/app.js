@@ -261,7 +261,7 @@ function chooseFile(selected) {
   notice('upload-message','');$('validation-results').hidden=true;state.uploadReport=null;
   if(!selected)return;
   if(!/\.(xlsx|csv)$/i.test(selected.name)){file=null;notice('upload-message','Wybierz plik .xlsx lub .csv.','error');}
-  else if(selected.size>5*1024*1024){file=null;notice('upload-message','Plik przekracza limit 5 MiB. Zmniejsz plik i wybierz go ponownie.','error');}
+  else if(selected.size>3*1024*1024){file=null;notice('upload-message','Plik przekracza limit 3 MiB. Zmniejsz plik i wybierz go ponownie.','error');}
   else if(selected.size===0){file=null;notice('upload-message','Wybrany plik jest pusty.','error');}
   else file=selected;
   $('file-name').textContent=file?`${file.name} · ${(file.size/1024).toFixed(1)} KiB`:'Nie wybrano poprawnego pliku';
@@ -373,7 +373,8 @@ function renderSourceStats(data) {
   const date=retrieved?new Date(retrieved).toLocaleString('pl-PL',{timeZone:'Europe/Warsaw'}):'brak daty';
   $('sources-freshness').textContent=`Dane.gov.pl pobrano: ${date} · ${data.danegov?.from_cache?'lokalna migawka offline':'odczyt z API'} · Grupy łączące dane.gov.pl i OSM: ${data.cross_source_groups||0}.`;
   if(data.danegov?.fallback_reason&&data.danegov.fallback_reason!=='offline_requested')notice('sources-message','API było niedostępne. Zachowano poprzednią migawkę danych.','error');
-  $('sync-danegov').disabled=!!state.syncing||!!data.sync_in_progress;
+  $('sync-danegov').disabled=!!state.syncing||!!data.sync_in_progress||data.persistence?.writes_enabled===false;
+  if(data.persistence?.writes_enabled===false)notice('sources-message','Mapa i pobieranie danych są dostępne. Zapisywanie zgłoszeń i synchronizacja wymagają podłączenia trwałej bazy danych.');
 }
 async function loadSourceStats() {
   try {const response=await fetch('/api/sources/stats',{signal:AbortSignal.timeout(15000)});if(!response.ok)throw new Error();renderSourceStats(await response.json());}

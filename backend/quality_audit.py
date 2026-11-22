@@ -9,7 +9,8 @@ from .danegov_client import CACHE_PATH
 
 @lru_cache(maxsize=1)
 def poland():
-    path = Path(__file__).parent / "data/cache/poland_boundary.json"
+    from .runtime_paths import cache_dir
+    path = cache_dir() / "poland_boundary.json"
     return json.loads(path.read_text(encoding="utf-8")) if path.exists() else None
 
 

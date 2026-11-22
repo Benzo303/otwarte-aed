@@ -2,7 +2,7 @@
 import fs from 'node:fs';
 import vm from 'node:vm';
 import assert from 'node:assert/strict';
-import {parseHTML} from 'linkedom';
+const {parseHTML}=await import(process.env.AED_LINKEDOM_URL||'linkedom');
 
 const {window}=parseHTML(fs.readFileSync(new URL('../index.html',import.meta.url),'utf8'));
 const {document}=window;

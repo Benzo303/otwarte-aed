@@ -30,7 +30,8 @@ from .quality_audit import in_poland
 from .schema import field_names
 
 MAX_BYTES, MAX_ROWS = 5*1024*1024, 500
-GEOCODE_CACHE = Path(__file__).parent / "data/cache/address_geocodes.json"
+from .runtime_paths import cache_dir
+GEOCODE_CACHE = cache_dir() / "address_geocodes.json"
 
 
 def coordinate(value, axis):

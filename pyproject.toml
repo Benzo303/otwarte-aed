@@ -17,6 +17,7 @@ dependencies = [
     "beautifulsoup4==4.15.0",
     "pypdf==7.1.1",
     "pdfplumber==0.11.11",
+    "psycopg[binary]>=3.2,<4",
 ]
 
 [tool.uv]
@@ -24,3 +25,6 @@ package = false
 
 [tool.vercel]
 entrypoint = "app:app"
+
+[tool.vercel.scripts]
+build = "python -B -m backend.vercel_build"

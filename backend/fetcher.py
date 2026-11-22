@@ -12,7 +12,8 @@ from pathlib import Path
 import requests
 
 ROOT = Path(__file__).resolve().parent
-CACHE_DIR = ROOT / "data" / "cache"
+from .runtime_paths import cache_dir
+CACHE_DIR = cache_dir()
 INSTITUTIONAL_PATH = ROOT / "data" / "rejestr_instytucjonalny_demo.csv"
 ENDPOINTS = ("https://overpass-api.de/api/interpreter", "https://overpass.private.coffee/api/interpreter",
              "https://maps.mail.ru/osm/tools/overpass/api/interpreter")
