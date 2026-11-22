@@ -1,5 +1,12 @@
 # Otwarte AED
 
+## Stan wersji konkursowej — 22 listopada 2026
+
+Prototyp online: https://otwarte-aed.vercel.app/ (HTTPS, Vercel, PostgreSQL / Neon). Zapis zgłoszeń, importów i migawki jest trwały; SQLite dotyczy wariantu lokalnego.
+
+Materiały: [opis](docs/opis_projektu.md), [prezentacja](docs/prezentacja_otwarte_aed.pptx), [przegląd dostępności](docs/audyt_dostepnosci.md), [paczka konkursowa](docs/materialy_otwarte_aed.zip). Paczka zawiera obecny frontend, moduły chmurowe, konfigurację Vercel i migawkę startową. Sprawdzone sumy plików: docs/manifest_paczki.json.
+
+
 **Najprostszy start w Windows:** kliknij dwukrotnie `START_AED.cmd` w tym katalogu.
 Starter ustala ścieżkę z własnego położenia (`%~dp0`), więc możesz przenieść
 cały folder projektu bez poprawiania ścieżek. Działa też uruchomiony z innego
