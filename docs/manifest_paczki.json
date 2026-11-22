@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T04:23:05.570714+00:00",
+  "generated_at": "2026-11-22T06:20:05.245212+00:00",
   "algorithm": "SHA-256",
   "note": "Manifest opisuje wszystkie pliki paczki poza samym manifestem.",
   "files": [
@@ -30,8 +30,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 7126,
-      "sha256": "94292ce8bc512832440956db769720ef88f3aa96658f8c42319ca7aff2929367"
+      "bytes": 6931,
+      "sha256": "ca11f2e3064ba43e49c5a83452f0d5e9112dafd686d78e5a8339335edec668f9"
     },
     {
       "path": "START_AED.cmd",
@@ -446,7 +446,7 @@
     {
       "path": "docs/status_materialow.json",
       "bytes": 480,
-      "sha256": "a1ff2cbe9b4ceba6d98567aec803e4b094910d05b3b06363ba45ef5595bf391f"
+      "sha256": "e3d28170ff481db9db16de9525bdfd69d8a39c0df3f9143d82526fb5d2bfa455"
     },
     {
       "path": "docs/zrzuty_ekranu/01_zrodla.png",
