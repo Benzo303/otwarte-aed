@@ -92,24 +92,22 @@ class CloudRuntime:
     def refresh(self):
         if not self.store.persistent:raise HTTPException(503,'Synchronizacja z zapisem wymaga podłączenia trwałej bazy danych. Aktualne dane pozostają dostępne.')
         from .harvester_export import build_snapshot
+        # Jedna transakcja utrzymuje blokadę również na połączeniu współdzielonym
+        # przez PgBouncer. COMMIT/ROLLBACK zwalnia ją automatycznie.
         with self.store.connection() as connection:
-            connection.commit()
-            connection.autocommit=True
-            locked=connection.execute('SELECT pg_try_advisory_lock(%s) AS locked',(REFRESH_LOCK,)).fetchone()['locked']
+            locked=connection.execute('SELECT pg_try_advisory_xact_lock(%s) AS locked',(REFRESH_LOCK,)).fetchone()['locked']
             if not locked:raise HTTPException(409,'Synchronizacja już trwa w innym procesie. Dotychczasowe dane są nadal dostępne.')
-            try:
-                records,report,bundle=build_snapshot(area='polska',offline=False,osm_offline=True,base_url=self.base_url)
-                snapshot={'records':records,'report':report,'bundle':bundle}
-                gov=self.cache_path/'danegov_cache.json'
-                payload=pack_snapshot(snapshot,gov.read_bytes() if gov.exists() else None)
-                revision=uuid4().hex
-                connection.execute('INSERT INTO otwarte_aed_snapshot(id,revision,payload) VALUES(1,%s,%s) ON CONFLICT(id) DO UPDATE SET revision=EXCLUDED.revision,payload=EXCLUDED.payload',(revision,payload))
-                with self.lock:
-                    self.snapshot,self.version=snapshot,revision
-                    self._last_check=time.monotonic()
-                return snapshot
-            finally:
-                connection.execute('SELECT pg_advisory_unlock(%s)',(REFRESH_LOCK,))
+            records,report,bundle=build_snapshot(area='polska',offline=False,osm_offline=True,base_url=self.base_url)
+            snapshot={'records':records,'report':report,'bundle':bundle}
+            gov=self.cache_path/'danegov_cache.json'
+            payload=pack_snapshot(snapshot,gov.read_bytes() if gov.exists() else None)
+            revision=uuid4().hex
+            connection.execute('INSERT INTO otwarte_aed_snapshot(id,revision,payload) VALUES(1,%s,%s) ON CONFLICT(id) DO UPDATE SET revision=EXCLUDED.revision,payload=EXCLUDED.payload',(revision,payload))
+        # Publikacja w pamięci następuje dopiero po udanym COMMIT w bazie.
+        with self.lock:
+            self.snapshot,self.version=snapshot,revision
+            self._last_check=time.monotonic()
+        return snapshot
     def status(self):
         return {'mode':self.store.mode,'writes_enabled':self.store.persistent,'snapshot_revision':self.version,
                 'startup_seconds':self.start_seconds,'upload_limit_bytes':3*1024*1024,

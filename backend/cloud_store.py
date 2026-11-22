@@ -42,13 +42,15 @@ class PostgresStore:
         except ImportError as exc:raise HTTPException(503,'Brakuje sterownika PostgreSQL. Przebuduj wdrożenie z aktualnymi zależnościami.') from exc
         try:
             with psycopg.connect(self.url,connect_timeout=8,prepare_threshold=None,row_factory=dict_row) as connection:
-                connection.execute("SET statement_timeout = '15000'")
                 with self._schema_lock:
                     if not self._schema_ready:
+                        connection.execute("SET LOCAL statement_timeout = '15000'")
                         connection.execute('SELECT pg_advisory_xact_lock(%s)',(SCHEMA_LOCK,))
                         for statement in DDL:connection.execute(statement)
                         connection.commit()
                         self._schema_ready=True
+                # Ustawienie dotyczy tylko bieżącej transakcji, także za PgBouncer.
+                connection.execute("SET LOCAL statement_timeout = '15000'")
                 yield connection
         except psycopg.Error as exc:raise HTTPException(503,'Nie można połączyć się z bazą zgłoszeń. Spróbuj ponownie później.') from exc
     def report(self,aed_id,kind,now):

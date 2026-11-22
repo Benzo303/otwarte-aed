@@ -81,19 +81,19 @@ class CloudTests(unittest.TestCase):
             runtime._last_check-=6
             self.assertEqual(runtime.current()['records'][0]['id_aed'],'OTHER')
             self.assertEqual(runtime.version,'new-revision')
-    def test_failed_refresh_keeps_old_snapshot_and_releases_lock(self):
+    def test_failed_refresh_keeps_old_snapshot_and_rolls_back(self):
         class Connection:
-            autocommit=False
-            calls=[]
-            def commit(self):pass
-            def execute(self,statement,params):
-                self.calls.append(statement)
-                return self
+            def execute(self,*args):return self
             def fetchone(self):return {'locked':True}
-        connection=Connection()
+        events=[]
         class Store(FakeStore):
             @contextmanager
-            def connection(self):yield connection
+            def connection(self):
+                try:yield Connection()
+                except BaseException:
+                    events.append('rollback')
+                    raise
+                else:events.append('commit')
         with TemporaryDirectory() as directory:
             cache=Path(directory);seed=cache/'seed.zip';seed.write_bytes(pack_snapshot(fixture()))
             runtime=CloudRuntime(seed_path=seed,cache_path=cache,base_url=BASE,store=Store());runtime.start()
@@ -101,7 +101,61 @@ class CloudTests(unittest.TestCase):
             with patch('backend.harvester_export.build_snapshot',side_effect=RuntimeError('timeout')):
                 with self.assertRaises(RuntimeError):runtime.refresh()
             self.assertIs(runtime.snapshot,before)
-            self.assertIn('pg_advisory_unlock',connection.calls[-1])
+            self.assertEqual(events,['rollback'])
+    def test_refresh_does_not_publish_when_commit_fails(self):
+        class Connection:
+            def execute(self,*args):return self
+            def fetchone(self):return {'locked':True}
+        class Store(FakeStore):
+            @contextmanager
+            def connection(self):
+                yield Connection()
+                raise RuntimeError('commit failed')
+        with TemporaryDirectory() as directory:
+            cache=Path(directory);seed=cache/'seed.zip';seed.write_bytes(pack_snapshot(fixture()))
+            runtime=CloudRuntime(seed_path=seed,cache_path=cache,base_url=BASE,store=Store());runtime.start()
+            before=runtime.snapshot;version=runtime.version;updated=fixture([point('NEW')])
+            with patch('backend.harvester_export.build_snapshot',return_value=(updated['records'],updated['report'],updated['bundle'])):
+                with self.assertRaisesRegex(RuntimeError,'commit failed'):runtime.refresh()
+            self.assertIs(runtime.snapshot,before)
+            self.assertEqual(runtime.version,version)
+    def test_refresh_publishes_after_commit(self):
+        class Connection:
+            def execute(self,*args):return self
+            def fetchone(self):return {'locked':True}
+        events=[]
+        class Store(FakeStore):
+            @contextmanager
+            def connection(self):
+                yield Connection()
+                self.assert_old()
+                events.append('commit')
+        with TemporaryDirectory() as directory:
+            cache=Path(directory);seed=cache/'seed.zip';seed.write_bytes(pack_snapshot(fixture()))
+            store=Store();runtime=CloudRuntime(seed_path=seed,cache_path=cache,base_url=BASE,store=store);runtime.start()
+            before=runtime.snapshot
+            store.assert_old=lambda:self.assertIs(runtime.snapshot,before)
+            updated=fixture([point('NEW')])
+            with patch('backend.harvester_export.build_snapshot',return_value=(updated['records'],updated['report'],updated['bundle'])):
+                result=runtime.refresh()
+            self.assertEqual(events,['commit'])
+            self.assertEqual(result['records'][0]['id_aed'],'NEW')
+            self.assertIs(runtime.snapshot,result)
+    def test_busy_refresh_does_not_start_second_download(self):
+        from fastapi import HTTPException
+        class Connection:
+            def execute(self,*args):return self
+            def fetchone(self):return {'locked':False}
+        class Store(FakeStore):
+            @contextmanager
+            def connection(self):yield Connection()
+        with TemporaryDirectory() as directory:
+            cache=Path(directory);seed=cache/'seed.zip';seed.write_bytes(pack_snapshot(fixture()))
+            runtime=CloudRuntime(seed_path=seed,cache_path=cache,base_url=BASE,store=Store());runtime.start()
+            with patch('backend.harvester_export.build_snapshot') as build:
+                with self.assertRaises(HTTPException) as error:runtime.refresh()
+                self.assertEqual(error.exception.status_code,409)
+                build.assert_not_called()
     def test_sqlite_and_shared_overlay_keep_same_damage_warning(self):
         row=point()
         with FeatureStoreForTest() as sqlite:
