@@ -84,6 +84,3 @@ Nie przeprowadzono badania wpływu na czas udzielania pomocy. Zewnętrzna nawiga
 kafelki mapy i nowe wyszukiwania lokalizacji mogą wymagać sieci.
 Testy z użytkownikami technologii asystujących, moderacja i monitoring operacyjny
 pozostają etapem dalszego wdrożenia. Prototyp nie jest oficjalnym państwowym rejestrem.
-
-Zespół przed zgłoszeniem analizuje i zatwierdza końcową pracę, autorstwo i prawa
-do własnych materiałów oraz zachowuje licencje wykorzystanych danych i bibliotek.
