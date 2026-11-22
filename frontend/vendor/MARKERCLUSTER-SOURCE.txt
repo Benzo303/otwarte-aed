@@ -1,0 +1,17 @@
+Leaflet.markercluster 1.5.3 — lokalna kopia wydania, bez CDN podczas działania.
+Repozytorium: https://github.com/Leaflet/Leaflet.markercluster
+Dokumentacja przypiętej wersji: https://github.com/Leaflet/Leaflet.markercluster/tree/v1.5.3
+Paczka: https://registry.npmjs.org/leaflet.markercluster/-/leaflet.markercluster-1.5.3.tgz
+Pobrano: 2026-11-21
+Licencja MIT: MARKERCLUSTER-LICENSE.txt (oryginalny MIT-LICENCE.txt)
+
+Oryginalne pliki dist, bez modyfikacji:
+leaflet.markercluster.js
+  SHA-256 1e4e1d22972a3926f48598e0caf14e3fe7049835d428a344fed4f9e3665b3508
+MarkerCluster.css
+  SHA-256 614dea0a98ff3f4ead74f04918f6b1d1b9ba435c25b5fc23b21a394d1e3e4d87
+leaflet.markercluster.js.map
+  SHA-256 a76b044ac5fedb2b1b2a11006083d91695609703168d03712e4b305c8bafd8af
+
+Własne kolory i rozmiary ikon są w frontend/styles.css, konfiguracja w app.js.
+MarkerCluster.Default.css nie jest potrzebny przy własnym iconCreateFunction.

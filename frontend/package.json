@@ -1,0 +1,7 @@
+{
+  "name": "otwarte-aed-frontend",
+  "private": true,
+  "type": "module",
+  "scripts": { "test": "node --test tests/core.test.js", "test:ui": "node tests/ui.check.mjs && node tests/ui.check.mjs --desktop && node tests/ui.check.mjs --deep-link && node tests/ui.check.mjs --clusters" },
+  "devDependencies": { "linkedom": "^0.18.15" }
+}

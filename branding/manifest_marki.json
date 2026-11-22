@@ -1,0 +1,13 @@
+{
+  "canonical": "branding/logo_otwarte_aed.svg",
+  "sha256": "c61a5ca6980926905a3a723b42307df57feb4600a29461e8efce14063340892d",
+  "website": "frontend/assets/logo_otwarte_aed.svg",
+  "formats": [
+    "svg",
+    "png",
+    "jpg",
+    "pdf"
+  ],
+  "campaign": "Otwarte AED",
+  "slogan": "Dane, które ratują minuty."
+}

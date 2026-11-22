@@ -1,0 +1,38 @@
+{
+  "osm_records": 18307,
+  "danegov_records": 49,
+  "duplicates_merged": 975,
+  "integrated_records": 17381,
+  "cross_source_groups": 38,
+  "generated_at": "2026-11-21T23:23:31.975132+00:00",
+  "datasets": [
+    {
+      "id": "3624",
+      "title": "Defibrylatory zlokalizowane w Mieście Krosno",
+      "institution_title": "Urząd Miasta Krosna",
+      "records_count": 21,
+      "status": "integrated"
+    },
+    {
+      "id": "39512",
+      "title": "Lokalizacja defibrylatorów (AED)",
+      "institution_title": "Urząd m.st. Warszawy",
+      "records_count": 0,
+      "status": "not_integrated"
+    },
+    {
+      "id": "4581",
+      "title": "Lokalizacje AED – Automatycznych Defibrylatorów Zewnętrznych w Przemyślu",
+      "institution_title": "Urząd Miejski w Przemyślu",
+      "records_count": 21,
+      "status": "integrated"
+    },
+    {
+      "id": "4955",
+      "title": "Defibrylatory zlokalizowane na terenie Miasta Marki",
+      "institution_title": "Urząd Miasta Marki",
+      "records_count": 7,
+      "status": "integrated"
+    }
+  ]
+}

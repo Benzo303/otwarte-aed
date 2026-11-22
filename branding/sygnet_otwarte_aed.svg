@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="200" viewBox="0 0 180 200" role="img" aria-labelledby="title desc">
+  <title id="title">Otwarte AED</title>
+  <desc id="desc">Serce z impulsem EKG w pinezce lokalizacji, połączone z otwartym węzłem danych. Dane, które ratują minuty.</desc>
+  <path d="M90 170 C76 151 24 116 24 74 C24 37 54 10 90 10 C126 10 156 37 156 74 C156 116 104 151 90 170 Z" fill="none" stroke="#D92638" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M90 113 C77 103 51 87 51 66 C51 48 76 43 90 61 C104 43 129 48 129 66 C129 87 103 103 90 113 Z" fill="#0F2C59" />
+  <path d="M56 79 L73 79 L81 62 L91 94 L101 73 L124 73" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M125 106 L140 117" fill="none" stroke="#0F2C59" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M171 126 C171 137 162 146 151 146 C140 146 131 137 131 126 C131 115 140 106 151 106 C162 106 171 115 171 126 Z" fill="#FFFFFF" />
+  <path d="M151 110 C142 110 135 117 135 126 C135 135 142 142 151 142 C160 142 167 135 167 126" fill="none" stroke="#0F2C59" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M171 113 C171 115.2 169.2 117 167 117 C164.8 117 163 115.2 163 113 C163 110.8 164.8 109 167 109 C169.2 109 171 110.8 171 113 Z" fill="#D92638" />
+</svg>
