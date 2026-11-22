@@ -4,7 +4,7 @@
   "duplicates_merged": 975,
   "integrated_records": 17381,
   "cross_source_groups": 38,
-  "generated_at": "2026-11-21T23:23:31.975132+00:00",
+  "generated_at": "2026-11-22T02:13:08.412963+00:00",
   "datasets": [
     {
       "id": "3624",
@@ -34,5 +34,14 @@
       "records_count": 7,
       "status": "integrated"
     }
-  ]
+  ],
+  "public_url": "https://otwarte-aed.vercel.app",
+  "cloud": {
+    "mode": "postgresql",
+    "writes_enabled": true,
+    "snapshot_revision": "891f5409907b4c0eaf231ac4b1182958",
+    "runtime_version": "vercel-2",
+    "commit": "14db9e9cf175c1b5f35c393e173b206390f7b68a"
+  },
+  "retrieved_at": "2026-11-22T02:13:02.223710+00:00"
 }

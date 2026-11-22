@@ -1,0 +1,657 @@
+{
+  "generated_at": "2026-11-22T03:50:23.087435+00:00",
+  "algorithm": "SHA-256",
+  "note": "Manifest opisuje wszystkie pliki paczki poza samym manifestem.",
+  "files": [
+    {
+      "path": ".dockerignore",
+      "bytes": 171,
+      "sha256": "1f9c2fd52be9e23b9702803185c54a9baead98face86f31f4ecb3f7be649dab1"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 114,
+      "sha256": "6375149be73ee74d8b9827ba2255090530c4eb3482740d76e48fe4c3aad2b942"
+    },
+    {
+      "path": "Dockerfile",
+      "bytes": 1137,
+      "sha256": "b33f96ff0a66a6aad0808bb83278437ffda51a9e18736d7967f942089213c067"
+    },
+    {
+      "path": "GENERUJ_PREZENTACJE.cmd",
+      "bytes": 1079,
+      "sha256": "634e3c3b420f66189b585ca0b3e5250b8a7f807aafb69edadfd8a2555ae96e49"
+    },
+    {
+      "path": "INSTRUKCJA_WGRANIA_NA_GITHUB.txt",
+      "bytes": 1168,
+      "sha256": "d4db9260ec5e0632642b6d6989e4029f77f8a937901d05d21a1b9a8ccbde3bb4"
+    },
+    {
+      "path": "README.md",
+      "bytes": 7126,
+      "sha256": "94292ce8bc512832440956db769720ef88f3aa96658f8c42319ca7aff2929367"
+    },
+    {
+      "path": "START_AED.cmd",
+      "bytes": 2477,
+      "sha256": "0589c80ccb6c7ca13e889e6b29464be2c9b946d192d878473d3f2898b58ea258"
+    },
+    {
+      "path": "START_DOCKER.cmd",
+      "bytes": 1489,
+      "sha256": "1017f99a45855d6de10586c9e99f4722156eb80492fa3cffbb62a8a0e6092248"
+    },
+    {
+      "path": "START_TELEFON.cmd",
+      "bytes": 343,
+      "sha256": "1320fef176fe3961a1666b54a8afa8ef7eeb2d3573aacfc2c7145968e15c74a2"
+    },
+    {
+      "path": "STOP_AED.cmd",
+      "bytes": 336,
+      "sha256": "a887c9db1e71207ff044417426152c9df30e71ab12e2ad83d3a85feffe075930"
+    },
+    {
+      "path": "STOP_DOCKER.cmd",
+      "bytes": 794,
+      "sha256": "7f9d23f53dd3290143e79c8634e02818c7d52d7b4569eeb58e01035468b58338"
+    },
+    {
+      "path": "app.py",
+      "bytes": 274,
+      "sha256": "8ab1aa89353f75296554aae52bc1abe643991738afe47d07df38d674c05e3ce9"
+    },
+    {
+      "path": "backend/README.md",
+      "bytes": 11244,
+      "sha256": "c84a9ab1f193c4b3a275f1fda993ede654cadad57bd174a39a544a7d7c33f771"
+    },
+    {
+      "path": "backend/__init__.py",
+      "bytes": 82,
+      "sha256": "09dbdefb137b10ab173b17b6f6d3fac0d0c8bcc307b685328d8cf697eef3ad46"
+    },
+    {
+      "path": "backend/availability.py",
+      "bytes": 2697,
+      "sha256": "c8d457f7e1ed8d9a0be8e99155b71be3d08803ee058eaecc6d69a0df8a2804e5"
+    },
+    {
+      "path": "backend/chaos_import.py",
+      "bytes": 14189,
+      "sha256": "ae91af432c2ab43b32638a639b697f9e42af9c95c8ba2cec5691260960407442"
+    },
+    {
+      "path": "backend/city_search.py",
+      "bytes": 9581,
+      "sha256": "58e385093fd0ffc557af39eb865ee013375cc6404e491e72957154614351c989"
+    },
+    {
+      "path": "backend/cloud_archive.py",
+      "bytes": 2242,
+      "sha256": "49d4c39faf7746bdcf8fa16295b353b26d967aa05e0295d8f95baee31e31fedb"
+    },
+    {
+      "path": "backend/cloud_responses.py",
+      "bytes": 886,
+      "sha256": "a4573347bd1d541e7b489da17112b60a442656b66f6e1786e04862bc96823e13"
+    },
+    {
+      "path": "backend/cloud_runtime.py",
+      "bytes": 6678,
+      "sha256": "e25f8351b1e1fc927c86fa974d33a440e2c529725a648550732058a453fe8353"
+    },
+    {
+      "path": "backend/cloud_store.py",
+      "bytes": 5013,
+      "sha256": "c4aa5d92653674cba2f07fd7d2df286a571c975185aeed8157557b2a5fe3e3fc"
+    },
+    {
+      "path": "backend/container_start.py",
+      "bytes": 572,
+      "sha256": "cf40a08e7592480e33b6b02beb30fb1379bbe0a91de48d2f59a3a19e749b3eea"
+    },
+    {
+      "path": "backend/danegov_client.py",
+      "bytes": 26621,
+      "sha256": "d58a721546374682c17211ac6affdf58a9d45bd87451ba686701101c52eba809"
+    },
+    {
+      "path": "backend/data/cache/city_boundaries.json",
+      "bytes": 153044,
+      "sha256": "58f874a1fcc32e74257c87ae7d49693fa3e0edf5acd89591619790ea7133a03f"
+    },
+    {
+      "path": "backend/data/cache/danegov_cache.json",
+      "bytes": 974603,
+      "sha256": "c59c82f8a25cdd46580f2d2b6afaa5511329ff25b433b4b99e006ba974816948"
+    },
+    {
+      "path": "backend/data/cache/locations.json",
+      "bytes": 1567,
+      "sha256": "8cba00d860d6fd805fb431ce63890c4332c71f616f1d516fd72b7dca2122a753"
+    },
+    {
+      "path": "backend/data/cache/osm_polska.json",
+      "bytes": 10969110,
+      "sha256": "2ebd3bf049dc2cff71f7a5b0d9a6203869d3dde92a25cb4e54ab72693866f783"
+    },
+    {
+      "path": "backend/data/cache/osm_warszawa.json",
+      "bytes": 730360,
+      "sha256": "c6eb8228697fbf12d3daf3fc04151cfb7faa86ffd5da8dfd32eff6fe4f72b59f"
+    },
+    {
+      "path": "backend/data/cache/poland_boundary.json",
+      "bytes": 485273,
+      "sha256": "a6af51d215c56b08dbcadb415c6115e14371aeef5e189217d65a5fe154ae50e2"
+    },
+    {
+      "path": "backend/data/deployment/vercel_seed.zip",
+      "bytes": 13396198,
+      "sha256": "7522672d395a88cd7f282bf471dcb506ef4abf0d6807812b51a0e7e98273ed1d"
+    },
+    {
+      "path": "backend/data/rejestr_instytucjonalny_demo.csv",
+      "bytes": 1612,
+      "sha256": "959ad3bf6c2ef7472e42723daa86e9f310d57b37bb4793be7114c704a39037f3"
+    },
+    {
+      "path": "backend/feature_store.py",
+      "bytes": 4428,
+      "sha256": "98ffa6b248c635c306ad26c3103991bfd9e9b55372740e5aabad5e42633d5730"
+    },
+    {
+      "path": "backend/features_api.py",
+      "bytes": 8060,
+      "sha256": "6e364b85656acad8187ab6816e281dd4c61ad5173a9369207f814b0b1780bd70"
+    },
+    {
+      "path": "backend/fetcher.py",
+      "bytes": 7708,
+      "sha256": "06b3f2f7038e960b5616ddad32f17077c18e884ce245ab97d1a9a9aed731a313"
+    },
+    {
+      "path": "backend/harvester_export.py",
+      "bytes": 16815,
+      "sha256": "438847ed6f38121097d1b45288cf12e90f56e0bdcfbb02048dc27a4071c6578f"
+    },
+    {
+      "path": "backend/location_search.py",
+      "bytes": 4439,
+      "sha256": "3c47d3c13e5b28bab4d2b3dd0d391588a12a538121b9a71ebc9c7c7419e82af2"
+    },
+    {
+      "path": "backend/main.py",
+      "bytes": 13832,
+      "sha256": "5fa71a73f9910cdd558e33ceda86b47760c962db6c78b747ec996eba3a309aa0"
+    },
+    {
+      "path": "backend/normalizer.py",
+      "bytes": 17298,
+      "sha256": "e95b3c1d3c786898d9576e1088cc39b955bbf2ffe24e98a77115c6276e07e17d"
+    },
+    {
+      "path": "backend/quality_audit.py",
+      "bytes": 4728,
+      "sha256": "4a0841aa56e84290ce33a736781a0096fc8de8d844e63f906e3e08b449bd6e8d"
+    },
+    {
+      "path": "backend/requirements.txt",
+      "bytes": 235,
+      "sha256": "a47118a1291745a2196c7997b6882cc04508796708a718cf607d4100dd536e0b"
+    },
+    {
+      "path": "backend/rescue.py",
+      "bytes": 2472,
+      "sha256": "ad0178e8fe7f3923a6bdcccf49ffc61d6b8c9afb354539859466570511b60cc4"
+    },
+    {
+      "path": "backend/runtime_paths.py",
+      "bytes": 222,
+      "sha256": "501cc1dfe93749a4948a1b6f7f18eb47c65a75b9dceb2dc31d1f63eabee093b5"
+    },
+    {
+      "path": "backend/schema.py",
+      "bytes": 1392,
+      "sha256": "72dbfcab2c6d75cc561b05b6a7a248ff58fa415bb330f37ed0236b7a0d06ff6e"
+    },
+    {
+      "path": "backend/schemas/otwarte_dane_latest.xsd",
+      "bytes": 39214,
+      "sha256": "15e2b5be70541097497aae7648e96b3a70466b77060920293710feff7028eb32"
+    },
+    {
+      "path": "backend/test_city_search.py",
+      "bytes": 5315,
+      "sha256": "bfc901242b998f6da87b908483ed389d98ee134c00e3176ccff54e7862ca39ff"
+    },
+    {
+      "path": "backend/test_cloud.py",
+      "bytes": 10338,
+      "sha256": "af20bc074dc3905c224a3925befd2a4669ab3b3d9c525001536adadbe717160b"
+    },
+    {
+      "path": "backend/test_danegov.py",
+      "bytes": 12626,
+      "sha256": "02f0481df8a1da95bcf64a6d784aebef7d897ab58df3611d08c84ce36280041f"
+    },
+    {
+      "path": "backend/test_features.py",
+      "bytes": 10848,
+      "sha256": "ddfa38b8ba7f44fb9afe4e571aef0ee43f1f29a357bf432761b6424e124827e3"
+    },
+    {
+      "path": "backend/test_pipeline.py",
+      "bytes": 18537,
+      "sha256": "b8975a952f96061f987051b9da3388f81d61997956da6895d5d2f878c9a94a95"
+    },
+    {
+      "path": "backend/test_simple_search.py",
+      "bytes": 4243,
+      "sha256": "63ae86755dbb8a369afe298f7c0717839f223665b5620adbf5c85edbfbd27fbc"
+    },
+    {
+      "path": "backend/upload_validation.py",
+      "bytes": 6035,
+      "sha256": "2005ee1bd3315796a7d45a5d9f7c876466ad8530dd36f3c0d10d3b08b4484a11"
+    },
+    {
+      "path": "backend/vercel_build.py",
+      "bytes": 1013,
+      "sha256": "7684d04091f4f3c50d6b6088d39495ca84927fcc39d89e7a002b00a351a9033e"
+    },
+    {
+      "path": "branding/README.md",
+      "bytes": 2511,
+      "sha256": "5926db0c4cf818928723ddb2c5bec16c95a67693249719d55350c92fcea01def"
+    },
+    {
+      "path": "branding/brand_assets.py",
+      "bytes": 5355,
+      "sha256": "7234af63a2a23685942d7f2005114d3835c272821dbb36bfcbb2157aedae227e"
+    },
+    {
+      "path": "branding/generuj_ksiege_v2.py",
+      "bytes": 9374,
+      "sha256": "c3bb2408e13252a74200e8ad606ac2ab8d44a52b5fb0d3d1bc25f2537be9354a"
+    },
+    {
+      "path": "branding/generuj_ksiege_znaku.py",
+      "bytes": 226,
+      "sha256": "348a8117ef7290e87414e5dc7d88127d08c52c21d416d1f956d7e561a5841a84"
+    },
+    {
+      "path": "branding/generuj_pakiet_marki.py",
+      "bytes": 2318,
+      "sha256": "a24f19c5902e73c01bdd40786df0ff6da645e0fe1aa360d358941435bfb42833"
+    },
+    {
+      "path": "branding/ksiega_znaku.pdf",
+      "bytes": 154858,
+      "sha256": "fda8c0feb2b2ac9bdcc929ce4f9d9418cf91bf8e36244890e0a02f1a8dacf8fc"
+    },
+    {
+      "path": "branding/logo_otwarte_aed.jpg",
+      "bytes": 271337,
+      "sha256": "a0f0183bb1d22875efdbf12031c72266a047bf38d5f976940ef2b58fe146af49"
+    },
+    {
+      "path": "branding/logo_otwarte_aed.pdf",
+      "bytes": 14864,
+      "sha256": "70465b806ab143529039dad37301e1d19868fd6a6c606199be9795c9da50132f"
+    },
+    {
+      "path": "branding/logo_otwarte_aed.png",
+      "bytes": 100931,
+      "sha256": "6ff6ae753fb87a253ede61cac3724679705e696f49d4611d0e98aadbd80ba2f2"
+    },
+    {
+      "path": "branding/logo_otwarte_aed.svg",
+      "bytes": 30860,
+      "sha256": "c61a5ca6980926905a3a723b42307df57feb4600a29461e8efce14063340892d"
+    },
+    {
+      "path": "branding/logo_otwarte_aed_kontrast.svg",
+      "bytes": 30860,
+      "sha256": "25634eee9245f90c219bf934af2eb91f21f483ae8f4c2b55d766a5142fd53310"
+    },
+    {
+      "path": "branding/logo_otwarte_aed_monochromatyczne.svg",
+      "bytes": 30860,
+      "sha256": "661604c9c0c61c82976a9a41654d42074b128151bca990530bca320ef6b650f6"
+    },
+    {
+      "path": "branding/logo_otwarte_aed_negatyw.svg",
+      "bytes": 30860,
+      "sha256": "73760b82dba8dca95689827937d0284d388b1744c7a74a705deb488898dd7816"
+    },
+    {
+      "path": "branding/logo_otwarte_aed_pakiet.zip",
+      "bytes": 493562,
+      "sha256": "999943f2e1e2a6b0948fc2fd03232df33cc0477b51463e469dd1638fdb31d97a"
+    },
+    {
+      "path": "branding/manifest_marki.json",
+      "bytes": 331,
+      "sha256": "74b2f2c8e6bbc2653c8a249fc74a3a07499780fc4ba338f95faf82e779511594"
+    },
+    {
+      "path": "branding/requirements.txt",
+      "bytes": 90,
+      "sha256": "4a618c8b7d9b6117740295957021e23df5370c8e0ae365d7b5ef4782ba696a64"
+    },
+    {
+      "path": "branding/sygnet_otwarte_aed.svg",
+      "bytes": 1447,
+      "sha256": "51bc5a8f1caa08d471f29eebf457dd93fe271d1b7955debf1d8dcd0123e206e2"
+    },
+    {
+      "path": "compose.yaml",
+      "bytes": 1399,
+      "sha256": "8e8848cc1351fae7930b47500ad41d2106c731b2e6404185e91546b79a4d08dd"
+    },
+    {
+      "path": "data_standard/generuj_wzorzec_aed.py",
+      "bytes": 34534,
+      "sha256": "4313893eb07aa718679878eb556f440121de60d365bd5ba58f4996d2ef441806"
+    },
+    {
+      "path": "data_standard/wzorzec_danych_aed.xlsx",
+      "bytes": 470765,
+      "sha256": "3239c43c3ee05d05bbb64837d0ee5b73b59100beb878447abacd7d89ad2ec52e"
+    },
+    {
+      "path": "docs/POSTGRES_NEON.md",
+      "bytes": 1514,
+      "sha256": "ffcbddc29e327f78f7b566275aab523951ce53e258a02505a136e7d90c09f061"
+    },
+    {
+      "path": "docs/WDROZENIE_VERCEL.md",
+      "bytes": 4988,
+      "sha256": "ddbaa44323556e43ceed57bbfb507677d0d6449f76e3b484cc698a8f00071b0c"
+    },
+    {
+      "path": "docs/audyt_dostepnosci.json",
+      "bytes": 92596,
+      "sha256": "1bd29b7a37e0aeba38ec6a03dec29a4245b4d2e0c28da5bd8b29a270674c4fd1"
+    },
+    {
+      "path": "docs/audyt_dostepnosci.md",
+      "bytes": 6121,
+      "sha256": "48acde7029c22713d111782a4a78669d22f6bc8c83909767084b4428a2aac53d"
+    },
+    {
+      "path": "docs/dane_prezentacji.json",
+      "bytes": 1442,
+      "sha256": "84f419d3cd5ebfc1fae897ea007c46cb8c9285717664bedba188d2a57a9a4cb4"
+    },
+    {
+      "path": "docs/docker.md",
+      "bytes": 3249,
+      "sha256": "f695a06856b77c25adb213106a9ac3fafba1a4d47efdfff90d089ac6d56f9318"
+    },
+    {
+      "path": "docs/funkcje_ratunkowe.md",
+      "bytes": 6572,
+      "sha256": "1e4d12e063e90b44480e48ddcafa3511bd160ebc8d538770a3b418704c0f59aa"
+    },
+    {
+      "path": "docs/generuj_prezentacje_otwarte_aed.py",
+      "bytes": 174,
+      "sha256": "4e20876c21e36b5d28ed3a6faa34d732eab80983da80a8c4a5fd12256dc611dd"
+    },
+    {
+      "path": "docs/generuj_prezentacje_v2.py",
+      "bytes": 18259,
+      "sha256": "dc35af37ab3e003feed82b4eed9e9d9056e6d39a5caf23a913db4ce335fb85af"
+    },
+    {
+      "path": "docs/integracja_danegov.md",
+      "bytes": 9613,
+      "sha256": "8a47253d29856a015fa144d67da943f0be7b4cecdcfa26b621074318b88baa5f"
+    },
+    {
+      "path": "docs/materialy_gov_erc.md",
+      "bytes": 2045,
+      "sha256": "2aa6fb250ad22c39ac0870bf99a7684dcd2f6f565786dc8cbb14a588d36ea3e1"
+    },
+    {
+      "path": "docs/opis_projektu.md",
+      "bytes": 5157,
+      "sha256": "1bd618121242f3f104bdda74413e4c85345c0d3aca655c68fd38508e8b35cf7e"
+    },
+    {
+      "path": "docs/prezentacja_otwarte_aed.pdf",
+      "bytes": 1232012,
+      "sha256": "2b1fc810e11943a79a00a5fad6b67ad2e479d34be9e9371900b07cc5ac3e219f"
+    },
+    {
+      "path": "docs/prezentacja_otwarte_aed.pptx",
+      "bytes": 982794,
+      "sha256": "4e8b6d08251d9773ee08bbc833adf807291c65bd423fc6155d494dc4d388fe80"
+    },
+    {
+      "path": "docs/spakuj_materialy.py",
+      "bytes": 6492,
+      "sha256": "c6ea8439ce2af9b80d695d6bbd49676c8eaa3117b5f4034ae92d2e76624e3d50"
+    },
+    {
+      "path": "docs/standard_danych_aed.md",
+      "bytes": 4348,
+      "sha256": "851023092d103564ec75c8364d96a7966e2331f97842ef31d778130aebc0a8cc"
+    },
+    {
+      "path": "docs/status_materialow.json",
+      "bytes": 480,
+      "sha256": "9f8223acd64eed25d41f7c170cc2b633507fb840d5a7c263112c105066b21c31"
+    },
+    {
+      "path": "docs/zrzuty_ekranu/01_zrodla.png",
+      "bytes": 36916,
+      "sha256": "a486782daadb8b024c4d4b84606f6a1fc3872cfd338b6b9080866440b6a098a3"
+    },
+    {
+      "path": "docs/zrzuty_ekranu/02_wzorzec.png",
+      "bytes": 84187,
+      "sha256": "468371437ab83f66a3a97e7e91265d4172079c1c7f47e432fc715c182797aa71"
+    },
+    {
+      "path": "docs/zrzuty_ekranu/03_mapa.png",
+      "bytes": 69306,
+      "sha256": "9c0c3f95fc16418827f2605c686e01ae44dd702e61f1e4b2641134b0ec3093c9"
+    },
+    {
+      "path": "docs/zrzuty_ekranu/04_dysponent_qr.png",
+      "bytes": 35171,
+      "sha256": "045326298a1c9853cc6cf67625c9e061c7401556f752d34999553669c85638ba"
+    },
+    {
+      "path": "docs/zrzuty_ekranu/05_eksport.png",
+      "bytes": 643305,
+      "sha256": "5bbde3ff0022faf191cdd840bf7ec79b5e3ad53906a7ee39762d4001552c61ab"
+    },
+    {
+      "path": "docs/zrzuty_ekranu/INSTRUKCJA.md",
+      "bytes": 1417,
+      "sha256": "ad4a3b3fc819d6fee9950ddf2e2a5be3bab73a472f1a95897d251c18045c775c"
+    },
+    {
+      "path": "frontend/README.md",
+      "bytes": 6027,
+      "sha256": "8092510a3dc2e861eeac79c319ea6e1bd988b6957cdd65fa6b0029903b05fe72"
+    },
+    {
+      "path": "frontend/START_AED.cmd",
+      "bytes": 143,
+      "sha256": "c355bdbebd7238fe76a7a3ce89316234d411d1243caa312970616df73f65972f"
+    },
+    {
+      "path": "frontend/START_DOCKER.cmd",
+      "bytes": 66,
+      "sha256": "6537f2c94b3f27a97a2c3d598f702f6bcefb28126188d3d58b8a4080637ed4e6"
+    },
+    {
+      "path": "frontend/START_TELEFON.cmd",
+      "bytes": 67,
+      "sha256": "37eb588a7b395e060ac2bff226a54e6671fc9b55e0d6c84354060714fdcc34c0"
+    },
+    {
+      "path": "frontend/STOP_AED.cmd",
+      "bytes": 62,
+      "sha256": "cf7ea0d02fa23f1069b283fe52b1f7132ab56434d3bc2d2e0bd7c78858c803f2"
+    },
+    {
+      "path": "frontend/STOP_DOCKER.cmd",
+      "bytes": 65,
+      "sha256": "d2bfd64dd85ce87fd219875050240da3cca3aca981af23fc2fecf9fb27b1363a"
+    },
+    {
+      "path": "frontend/app.js",
+      "bytes": 36545,
+      "sha256": "1140a8cce0689b1faf92215b8ea83c7bb087f03d652eb049f0419f5c1d972be5"
+    },
+    {
+      "path": "frontend/assets/godlo-rp.svg",
+      "bytes": 60856,
+      "sha256": "c6c6102df4498e91b7bdde263b61bebdfb2251d1c99d09565b2d4908c5e6727e"
+    },
+    {
+      "path": "frontend/assets/logo_otwarte_aed.svg",
+      "bytes": 30860,
+      "sha256": "c61a5ca6980926905a3a723b42307df57feb4600a29461e8efce14063340892d"
+    },
+    {
+      "path": "frontend/assets/logo_otwarte_aed_kontrast.svg",
+      "bytes": 30860,
+      "sha256": "25634eee9245f90c219bf934af2eb91f21f483ae8f4c2b55d766a5142fd53310"
+    },
+    {
+      "path": "frontend/assets/mark.svg",
+      "bytes": 1447,
+      "sha256": "51bc5a8f1caa08d471f29eebf457dd93fe271d1b7955debf1d8dcd0123e206e2"
+    },
+    {
+      "path": "frontend/core.js",
+      "bytes": 5241,
+      "sha256": "5f31011f40e806a6c85aa0baf55d2de2a4400f110d83a84df2ee3691271fe8fe"
+    },
+    {
+      "path": "frontend/drawer.js",
+      "bytes": 6696,
+      "sha256": "b4e6efa210224f1b10796b7fb7c0f0c04740d190c101c1d66e50442c7f22ced3"
+    },
+    {
+      "path": "frontend/index.html",
+      "bytes": 23126,
+      "sha256": "bc41b8a520b7faa0d3b0cc4388908cbcea8780b5ad0a8aa91a7356512d83b9d0"
+    },
+    {
+      "path": "frontend/package.json",
+      "bytes": 336,
+      "sha256": "3d8c740c9ad2eeaa02e9a5514f9f07853dd63461c81b14e4db0ac15be89dd7a4"
+    },
+    {
+      "path": "frontend/pnpm-lock.yaml",
+      "bytes": 5042,
+      "sha256": "f6d9fc2f5f4fd40955cc8842357d98b70fa31352e37bd984b1a2f00fb521283d"
+    },
+    {
+      "path": "frontend/rescue-ui.js",
+      "bytes": 23303,
+      "sha256": "6480a1fcf63809c6346f394f46c044ed0ee03b58fc9cf723bddf628e2f03f6a9"
+    },
+    {
+      "path": "frontend/styles.css",
+      "bytes": 33306,
+      "sha256": "fe13a658fbf982c100e2a566a56b912f53a8f9ee4c210f5607427a82b8806f1a"
+    },
+    {
+      "path": "frontend/tests/core.test.js",
+      "bytes": 4081,
+      "sha256": "3a2b89711c39d939e76a56bf128ed495ec0f594f1b442e65403e8eae04fb7ead"
+    },
+    {
+      "path": "frontend/tests/ui.check.mjs",
+      "bytes": 22922,
+      "sha256": "73a459cc5a6e9c3a68ade55d5f9ed0082fda238ccd46063cc41ebf036cf573b8"
+    },
+    {
+      "path": "frontend/vendor/LEAFLET-LICENSE.txt",
+      "bytes": 1395,
+      "sha256": "53e8dc25862014e4324741ca18fbe3611e11d42ef69f59f86ea8c5389647d4cb"
+    },
+    {
+      "path": "frontend/vendor/MARKERCLUSTER-LICENSE.txt",
+      "bytes": 1052,
+      "sha256": "3133dacd38250bd1f524d8166cc60a016a382522e062fce143691c65bf5e4b3d"
+    },
+    {
+      "path": "frontend/vendor/MARKERCLUSTER-SOURCE.txt",
+      "bytes": 919,
+      "sha256": "dc4eeb1526d18e3afacd3ffe2a85fd6e88a09321dddedc82c71b5d5c123055c7"
+    },
+    {
+      "path": "frontend/vendor/MarkerCluster.css",
+      "bytes": 872,
+      "sha256": "614dea0a98ff3f4ead74f04918f6b1d1b9ba435c25b5fc23b21a394d1e3e4d87"
+    },
+    {
+      "path": "frontend/vendor/QRCODE-LICENSE.txt",
+      "bytes": 1081,
+      "sha256": "e23030bf8d16c1f84cd0d49bc08c1a6aa6364bd9e511799b919cc880c2104407"
+    },
+    {
+      "path": "frontend/vendor/leaflet.css",
+      "bytes": 14806,
+      "sha256": "a7837102824184820dfa198d1ebcd109ff6d0ff9a2672a074b9a1b4d147d04c6"
+    },
+    {
+      "path": "frontend/vendor/leaflet.js",
+      "bytes": 147552,
+      "sha256": "db49d009c841f5ca34a888c96511ae936fd9f5533e90d8b2c4d57596f4e5641a"
+    },
+    {
+      "path": "frontend/vendor/leaflet.markercluster.js",
+      "bytes": 34136,
+      "sha256": "1e4e1d22972a3926f48598e0caf14e3fe7049835d428a344fed4f9e3665b3508"
+    },
+    {
+      "path": "frontend/vendor/leaflet.markercluster.js.map",
+      "bytes": 41953,
+      "sha256": "a76b044ac5fedb2b1b2a11006083d91695609703168d03712e4b305c8bafd8af"
+    },
+    {
+      "path": "frontend/vendor/qrcode.js",
+      "bytes": 56694,
+      "sha256": "18ae399f81182bc9de916e9c77b195df20cc58d6f2d55a62b085a299f1bf1780"
+    },
+    {
+      "path": "pyproject.toml",
+      "bytes": 678,
+      "sha256": "084a3ce63f9e5ced518f079a0231ec418250fd7efec67f29f791d6851da83784"
+    },
+    {
+      "path": "requirements-lock.txt",
+      "bytes": 872,
+      "sha256": "231ddd63ee7a32fce48780c2aec932b92b9a8e3449c8f0524213aa013fdc1584"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 137,
+      "sha256": "fd00f1cfebcf8ad3697834c5d8b08c6042c8ac09976a0f543f9ded4704a30c2a"
+    },
+    {
+      "path": "uruchom_aed.py",
+      "bytes": 6221,
+      "sha256": "13f4038f95f53fa84664d1bb855a5ff37642d83b05bd35656df7ff2174fcef6f"
+    },
+    {
+      "path": "vercel.json",
+      "bytes": 338,
+      "sha256": "7c469ff43ddb80ca85fc0d406cbb386d5109db5e0d288a39a98a6f87953237a2"
+    }
+  ]
+}

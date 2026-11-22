@@ -1,0 +1,3598 @@
+{
+  "review_date": "2026-11-22",
+  "standard": "WCAG 2.2 A/AA",
+  "scope": "Expert review of prototype; automated Chromium scans and manual keyboard/reflow checks",
+  "conformance_statement": false,
+  "aaa_certification": false,
+  "automated": {
+    "tool": "axe-core",
+    "version": "4.14.1",
+    "scenarios": 13,
+    "violations_after": 0,
+    "runs": [
+      {
+        "label": "final-accessibility",
+        "created_at": "2026-11-22T03:30:55.923Z",
+        "axe_version": "4.14.1",
+        "url": "http://127.0.0.1:8091/#mapa",
+        "measurements": {
+          "viewport": {
+            "width": 1261,
+            "height": 850
+          },
+          "overflow": false,
+          "smallTargets": [
+            {
+              "id": "",
+              "text": "Leaflet",
+              "width": 68.484375,
+              "height": 17
+            },
+            {
+              "id": "",
+              "text": "OpenStreetMap",
+              "width": 112.953125,
+              "height": 17
+            },
+            {
+              "id": "",
+              "text": "Źródło: ERC 2025 (PDF, nowa karta)",
+              "width": 248.9375,
+              "height": 21
+            },
+            {
+              "id": "open-now",
+              "text": "",
+              "width": 22,
+              "height": 22
+            },
+            {
+              "id": "chaos-geocode",
+              "text": "",
+              "width": 22,
+              "height": 22
+            },
+            {
+              "id": "",
+              "text": "© OpenStreetMap contributors (nowa karta)",
+              "width": 313,
+              "height": 21
+            }
+          ],
+          "headings": [
+            {
+              "level": "H1",
+              "text": "Mapa defibrylatorów"
+            },
+            {
+              "level": "H2",
+              "text": "Nie wiesz, czy użyć AED? Sprawdź w 2 pytaniach"
+            },
+            {
+              "level": "H3",
+              "text": "Czy osoba reaguje, gdy głośno mówisz i delikatnie potrząsasz za ramię?"
+            },
+            {
+              "level": "H2",
+              "text": "Znajdź otwarty defibrylator"
+            },
+            {
+              "level": "H2",
+              "text": "Otwarte urządzenia"
+            },
+            {
+              "level": "H3",
+              "text": "Defibrylator (AED 9469) Muzeum Dzwonów i Fajek"
+            },
+            {
+              "level": "H3",
+              "text": "Bosman Portu Rybackiego"
+            },
+            {
+              "level": "H3",
+              "text": "Komisariat Policji"
+            },
+            {
+              "level": "H2",
+              "text": "Mapa defibrylatorów"
+            },
+            {
+              "level": "H2",
+              "text": "Pomoc i narzędzia"
+            },
+            {
+              "level": "H2",
+              "text": "Generator kodu QR i tabliczki AED"
+            },
+            {
+              "level": "H2",
+              "text": "Zwaliduj swoją bazę"
+            },
+            {
+              "level": "H2",
+              "text": "Odkurzacz Danych BIP"
+            },
+            {
+              "level": "H3",
+              "text": "Dane wybranego AED"
+            },
+            {
+              "level": "H2",
+              "text": "Ranking Instytucji Publicznych"
+            },
+            {
+              "level": "H2",
+              "text": "Połączone źródła z API dane.gov.pl"
+            },
+            {
+              "level": "H2",
+              "text": "Podgląd zasobu"
+            }
+          ]
+        },
+        "violations": [],
+        "passes": [
+          {
+            "id": "aria-allowed-attr",
+            "nodes": 27
+          },
+          {
+            "id": "aria-conditional-attr",
+            "nodes": 27
+          },
+          {
+            "id": "aria-deprecated-role",
+            "nodes": 8
+          },
+          {
+            "id": "aria-hidden-body",
+            "nodes": 1
+          },
+          {
+            "id": "aria-hidden-focus",
+            "nodes": 9
+          },
+          {
+            "id": "aria-prohibited-attr",
+            "nodes": 27
+          },
+          {
+            "id": "aria-required-attr",
+            "nodes": 8
+          },
+          {
+            "id": "aria-roles",
+            "nodes": 8
+          },
+          {
+            "id": "aria-valid-attr-value",
+            "nodes": 27
+          },
+          {
+            "id": "aria-valid-attr",
+            "nodes": 27
+          },
+          {
+            "id": "autocomplete-valid",
+            "nodes": 1
+          },
+          {
+            "id": "avoid-inline-spacing",
+            "nodes": 3
+          },
+          {
+            "id": "button-name",
+            "nodes": 21
+          },
+          {
+            "id": "bypass",
+            "nodes": 1
+          },
+          {
+            "id": "document-title",
+            "nodes": 1
+          },
+          {
+            "id": "duplicate-id-aria",
+            "nodes": 31
+          },
+          {
+            "id": "form-field-multiple-labels",
+            "nodes": 1
+          },
+          {
+            "id": "html-has-lang",
+            "nodes": 1
+          },
+          {
+            "id": "html-lang-valid",
+            "nodes": 1
+          },
+          {
+            "id": "image-alt",
+            "nodes": 17
+          },
+          {
+            "id": "label-content-name-mismatch",
+            "nodes": 6
+          },
+          {
+            "id": "label",
+            "nodes": 1
+          },
+          {
+            "id": "link-in-text-block",
+            "nodes": 1
+          },
+          {
+            "id": "link-name",
+            "nodes": 10
+          },
+          {
+            "id": "list",
+            "nodes": 2
+          },
+          {
+            "id": "listitem",
+            "nodes": 8
+          },
+          {
+            "id": "meta-viewport",
+            "nodes": 1
+          },
+          {
+            "id": "nested-interactive",
+            "nodes": 29
+          },
+          {
+            "id": "scrollable-region-focusable",
+            "nodes": 1
+          },
+          {
+            "id": "summary-name",
+            "nodes": 5
+          },
+          {
+            "id": "target-size",
+            "nodes": 33
+          }
+        ],
+        "inapplicable": [
+          "area-alt",
+          "aria-braille-equivalent",
+          "aria-command-name",
+          "aria-input-field-name",
+          "aria-meter-name",
+          "aria-progressbar-name",
+          "aria-required-children",
+          "aria-required-parent",
+          "aria-tab-name",
+          "aria-toggle-field-name",
+          "aria-tooltip-name",
+          "blink",
+          "definition-list",
+          "dlitem",
+          "frame-focusable-content",
+          "frame-title-unique",
+          "frame-title",
+          "html-xml-lang-mismatch",
+          "input-button-name",
+          "input-image-alt",
+          "marquee",
+          "meta-refresh",
+          "object-alt",
+          "role-img-alt",
+          "select-name",
+          "server-side-image-map",
+          "svg-img-alt",
+          "td-headers-attr",
+          "th-has-data-cells",
+          "valid-lang",
+          "video-caption",
+          "no-autoplay-audio"
+        ],
+        "manual_review_items": [
+          {
+            "id": "color-contrast",
+            "targets": [
+              [
+                ".aed-cluster--large.leaflet-marker-icon.aed-cluster:nth-child(1) > span"
+              ]
+            ]
+          },
+          {
+            "id": "label-content-name-mismatch",
+            "targets": [
+              [
+                ".leaflet-control-zoom-in"
+              ],
+              [
+                ".leaflet-control-zoom-out"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "label": "final-assistant-critical",
+        "created_at": "2026-11-22T03:36:54.285Z",
+        "axe_version": "4.14.1",
+        "url": "http://localhost:8091/#mapa",
+        "measurements": {
+          "viewport": {
+            "width": 320,
+            "height": 850
+          },
+          "overflow": false,
+          "smallTargets": [
+            {
+              "id": "",
+              "text": "Leaflet",
+              "width": 68.484375,
+              "height": 17
+            },
+            {
+              "id": "",
+              "text": "OpenStreetMap",
+              "width": 112.953125,
+              "height": 17
+            }
+          ],
+          "headings": [
+            {
+              "level": "H1",
+              "text": "Mapa defibrylatorów"
+            },
+            {
+              "level": "H2",
+              "text": "Nie wiesz, czy użyć AED? Sprawdź w 2 pytaniach"
+            },
+            {
+              "level": "H3",
+              "text": "RÓB MASAŻ SERCA, ZADZWOŃ POD 112 I UŻYJ AED, GDY DOTRZE!"
+            },
+            {
+              "level": "H2",
+              "text": "Znajdź otwarty defibrylator"
+            },
+            {
+              "level": "H2",
+              "text": "Otwarte urządzenia"
+            },
+            {
+              "level": "H3",
+              "text": "Defibrylator (AED 9469) Muzeum Dzwonów i Fajek"
+            },
+            {
+              "level": "H3",
+              "text": "Bosman Portu Rybackiego"
+            },
+            {
+              "level": "H3",
+              "text": "Komisariat Policji"
+            },
+            {
+              "level": "H2",
+              "text": "Mapa defibrylatorów"
+            }
+          ]
+        },
+        "violations": [],
+        "passes": [
+          {
+            "id": "aria-allowed-attr",
+            "nodes": 18
+          },
+          {
+            "id": "aria-conditional-attr",
+            "nodes": 18
+          },
+          {
+            "id": "aria-deprecated-role",
+            "nodes": 7
+          },
+          {
+            "id": "aria-hidden-body",
+            "nodes": 1
+          },
+          {
+            "id": "aria-hidden-focus",
+            "nodes": 9
+          },
+          {
+            "id": "aria-prohibited-attr",
+            "nodes": 18
+          },
+          {
+            "id": "aria-required-attr",
+            "nodes": 7
+          },
+          {
+            "id": "aria-roles",
+            "nodes": 7
+          },
+          {
+            "id": "aria-valid-attr-value",
+            "nodes": 18
+          },
+          {
+            "id": "aria-valid-attr",
+            "nodes": 18
+          },
+          {
+            "id": "autocomplete-valid",
+            "nodes": 1
+          },
+          {
+            "id": "avoid-inline-spacing",
+            "nodes": 3
+          },
+          {
+            "id": "button-name",
+            "nodes": 13
+          },
+          {
+            "id": "bypass",
+            "nodes": 1
+          },
+          {
+            "id": "document-title",
+            "nodes": 1
+          },
+          {
+            "id": "duplicate-id-aria",
+            "nodes": 31
+          },
+          {
+            "id": "form-field-multiple-labels",
+            "nodes": 1
+          },
+          {
+            "id": "html-has-lang",
+            "nodes": 1
+          },
+          {
+            "id": "html-lang-valid",
+            "nodes": 1
+          },
+          {
+            "id": "image-alt",
+            "nodes": 7
+          },
+          {
+            "id": "label-content-name-mismatch",
+            "nodes": 3
+          },
+          {
+            "id": "label",
+            "nodes": 1
+          },
+          {
+            "id": "link-in-text-block",
+            "nodes": 1
+          },
+          {
+            "id": "link-name",
+            "nodes": 9
+          },
+          {
+            "id": "list",
+            "nodes": 1
+          },
+          {
+            "id": "listitem",
+            "nodes": 3
+          },
+          {
+            "id": "meta-viewport",
+            "nodes": 1
+          },
+          {
+            "id": "nested-interactive",
+            "nodes": 16
+          },
+          {
+            "id": "target-size",
+            "nodes": 19
+          }
+        ],
+        "inapplicable": [
+          "area-alt",
+          "aria-braille-equivalent",
+          "aria-command-name",
+          "aria-input-field-name",
+          "aria-meter-name",
+          "aria-progressbar-name",
+          "aria-required-children",
+          "aria-required-parent",
+          "aria-tab-name",
+          "aria-toggle-field-name",
+          "aria-tooltip-name",
+          "blink",
+          "definition-list",
+          "dlitem",
+          "frame-focusable-content",
+          "frame-title-unique",
+          "frame-title",
+          "html-xml-lang-mismatch",
+          "input-button-name",
+          "input-image-alt",
+          "marquee",
+          "meta-refresh",
+          "object-alt",
+          "role-img-alt",
+          "scrollable-region-focusable",
+          "select-name",
+          "server-side-image-map",
+          "summary-name",
+          "svg-img-alt",
+          "td-headers-attr",
+          "th-has-data-cells",
+          "valid-lang",
+          "video-caption",
+          "no-autoplay-audio"
+        ],
+        "manual_review_items": [
+          {
+            "id": "color-contrast",
+            "targets": [
+              [
+                ".aed-cluster--large.leaflet-marker-icon.aed-cluster:nth-child(1) > span"
+              ]
+            ]
+          },
+          {
+            "id": "label-content-name-mismatch",
+            "targets": [
+              [
+                ".leaflet-control-zoom-in"
+              ],
+              [
+                ".leaflet-control-zoom-out"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "label": "final-data",
+        "created_at": "2026-11-22T03:31:13.697Z",
+        "axe_version": "4.14.1",
+        "url": "http://127.0.0.1:8091/#mapa",
+        "measurements": {
+          "viewport": {
+            "width": 1261,
+            "height": 850
+          },
+          "overflow": false,
+          "smallTargets": [
+            {
+              "id": "",
+              "text": "Leaflet",
+              "width": 68.484375,
+              "height": 17
+            },
+            {
+              "id": "",
+              "text": "OpenStreetMap",
+              "width": 112.953125,
+              "height": 17
+            },
+            {
+              "id": "",
+              "text": "Źródło: ERC 2025 (PDF, nowa karta)",
+              "width": 248.9375,
+              "height": 21
+            },
+            {
+              "id": "open-now",
+              "text": "",
+              "width": 22,
+              "height": 22
+            },
+            {
+              "id": "chaos-geocode",
+              "text": "",
+              "width": 22,
+              "height": 22
+            },
+            {
+              "id": "",
+              "text": "Lokalizacja defibrylatorów (AED) (nowa karta)",
+              "width": 212.71875,
+              "height": 20
+            },
+            {
+              "id": "",
+              "text": "© OpenStreetMap contributors (nowa karta)",
+              "width": 313,
+              "height": 21
+            }
+          ],
+          "headings": [
+            {
+              "level": "H1",
+              "text": "Mapa defibrylatorów"
+            },
+            {
+              "level": "H2",
+              "text": "Nie wiesz, czy użyć AED? Sprawdź w 2 pytaniach"
+            },
+            {
+              "level": "H3",
+              "text": "Czy osoba reaguje, gdy głośno mówisz i delikatnie potrząsasz za ramię?"
+            },
+            {
+              "level": "H2",
+              "text": "Znajdź otwarty defibrylator"
+            },
+            {
+              "level": "H2",
+              "text": "Otwarte urządzenia"
+            },
+            {
+              "level": "H3",
+              "text": "Defibrylator (AED 9469) Muzeum Dzwonów i Fajek"
+            },
+            {
+              "level": "H3",
+              "text": "Bosman Portu Rybackiego"
+            },
+            {
+              "level": "H3",
+              "text": "Komisariat Policji"
+            },
+            {
+              "level": "H2",
+              "text": "Mapa defibrylatorów"
+            },
+            {
+              "level": "H2",
+              "text": "Pomoc i narzędzia"
+            },
+            {
+              "level": "H2",
+              "text": "Generator kodu QR i tabliczki AED"
+            },
+            {
+              "level": "H2",
+              "text": "Zwaliduj swoją bazę"
+            },
+            {
+              "level": "H2",
+              "text": "Odkurzacz Danych BIP"
+            },
+            {
+              "level": "H3",
+              "text": "Dane wybranego AED"
+            },
+            {
+              "level": "H2",
+              "text": "Ranking Instytucji Publicznych"
+            },
+            {
+              "level": "H2",
+              "text": "Połączone źródła z API dane.gov.pl"
+            },
+            {
+              "level": "H2",
+              "text": "Podgląd zasobu"
+            }
+          ]
+        },
+        "violations": [],
+        "passes": [
+          {
+            "id": "aria-allowed-attr",
+            "nodes": 38
+          },
+          {
+            "id": "aria-conditional-attr",
+            "nodes": 38
+          },
+          {
+            "id": "aria-deprecated-role",
+            "nodes": 10
+          },
+          {
+            "id": "aria-hidden-body",
+            "nodes": 1
+          },
+          {
+            "id": "aria-hidden-focus",
+            "nodes": 9
+          },
+          {
+            "id": "aria-prohibited-attr",
+            "nodes": 36
+          },
+          {
+            "id": "aria-required-attr",
+            "nodes": 10
+          },
+          {
+            "id": "aria-roles",
+            "nodes": 10
+          },
+          {
+            "id": "aria-valid-attr-value",
+            "nodes": 38
+          },
+          {
+            "id": "aria-valid-attr",
+            "nodes": 38
+          },
+          {
+            "id": "autocomplete-valid",
+            "nodes": 1
+          },
+          {
+            "id": "avoid-inline-spacing",
+            "nodes": 3
+          },
+          {
+            "id": "button-name",
+            "nodes": 20
+          },
+          {
+            "id": "bypass",
+            "nodes": 1
+          },
+          {
+            "id": "definition-list",
+            "nodes": 1
+          },
+          {
+            "id": "dlitem",
+            "nodes": 8
+          },
+          {
+            "id": "document-title",
+            "nodes": 1
+          },
+          {
+            "id": "duplicate-id-aria",
+            "nodes": 31
+          },
+          {
+            "id": "form-field-multiple-labels",
+            "nodes": 9
+          },
+          {
+            "id": "html-has-lang",
+            "nodes": 1
+          },
+          {
+            "id": "html-lang-valid",
+            "nodes": 1
+          },
+          {
+            "id": "image-alt",
+            "nodes": 17
+          },
+          {
+            "id": "label-content-name-mismatch",
+            "nodes": 5
+          },
+          {
+            "id": "label",
+            "nodes": 8
+          },
+          {
+            "id": "link-in-text-block",
+            "nodes": 1
+          },
+          {
+            "id": "link-name",
+            "nodes": 14
+          },
+          {
+            "id": "list",
+            "nodes": 1
+          },
+          {
+            "id": "listitem",
+            "nodes": 3
+          },
+          {
+            "id": "meta-viewport",
+            "nodes": 1
+          },
+          {
+            "id": "nested-interactive",
+            "nodes": 34
+          },
+          {
+            "id": "scrollable-region-focusable",
+            "nodes": 3
+          },
+          {
+            "id": "select-name",
+            "nodes": 1
+          },
+          {
+            "id": "summary-name",
+            "nodes": 5
+          },
+          {
+            "id": "target-size",
+            "nodes": 41
+          },
+          {
+            "id": "td-headers-attr",
+            "nodes": 2
+          },
+          {
+            "id": "th-has-data-cells",
+            "nodes": 1
+          }
+        ],
+        "inapplicable": [
+          "area-alt",
+          "aria-braille-equivalent",
+          "aria-command-name",
+          "aria-input-field-name",
+          "aria-meter-name",
+          "aria-progressbar-name",
+          "aria-required-children",
+          "aria-required-parent",
+          "aria-tab-name",
+          "aria-toggle-field-name",
+          "aria-tooltip-name",
+          "blink",
+          "frame-focusable-content",
+          "frame-title-unique",
+          "frame-title",
+          "html-xml-lang-mismatch",
+          "input-button-name",
+          "input-image-alt",
+          "marquee",
+          "meta-refresh",
+          "object-alt",
+          "role-img-alt",
+          "server-side-image-map",
+          "svg-img-alt",
+          "valid-lang",
+          "video-caption",
+          "no-autoplay-audio"
+        ],
+        "manual_review_items": [
+          {
+            "id": "aria-prohibited-attr",
+            "targets": [
+              [
+                ".table-wrap"
+              ],
+              [
+                "#export-preview"
+              ]
+            ]
+          },
+          {
+            "id": "color-contrast",
+            "targets": [
+              [
+                ".aed-cluster--large.leaflet-marker-icon.aed-cluster:nth-child(1) > span"
+              ]
+            ]
+          },
+          {
+            "id": "label-content-name-mismatch",
+            "targets": [
+              [
+                ".leaflet-control-zoom-in"
+              ],
+              [
+                ".leaflet-control-zoom-out"
+              ]
+            ]
+          },
+          {
+            "id": "th-has-data-cells",
+            "targets": [
+              [
+                ".table-wrap > table"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "label": "final-detail",
+        "created_at": "2026-11-22T03:33:03.424Z",
+        "axe_version": "4.14.1",
+        "url": "http://localhost:8091/#mapa",
+        "measurements": {
+          "viewport": {
+            "width": 1261,
+            "height": 850
+          },
+          "overflow": false,
+          "smallTargets": [
+            {
+              "id": "",
+              "text": "Leaflet",
+              "width": 68.484375,
+              "height": 17
+            },
+            {
+              "id": "",
+              "text": "OpenStreetMap",
+              "width": 112.953125,
+              "height": 17
+            },
+            {
+              "id": "",
+              "text": "© OpenStreetMap contributors (nowa karta)",
+              "width": 313,
+              "height": 21
+            }
+          ],
+          "headings": [
+            {
+              "level": "H1",
+              "text": "Mapa defibrylatorów"
+            },
+            {
+              "level": "H2",
+              "text": "Nie wiesz, czy użyć AED? Sprawdź w 2 pytaniach"
+            },
+            {
+              "level": "H3",
+              "text": "Czy osoba reaguje, gdy głośno mówisz i delikatnie potrząsasz za ramię?"
+            },
+            {
+              "level": "H2",
+              "text": "Znajdź otwarty defibrylator"
+            },
+            {
+              "level": "H3",
+              "text": "Najbliższe otwarte urządzenia"
+            },
+            {
+              "level": "H4",
+              "text": "przy głównym wejściu do ratusza, po prawej stronie"
+            },
+            {
+              "level": "H4",
+              "text": "Defibrylator"
+            },
+            {
+              "level": "H4",
+              "text": "Defibrylator"
+            },
+            {
+              "level": "H2",
+              "text": "Otwarte urządzenia"
+            },
+            {
+              "level": "H3",
+              "text": "Przed wejściem na cmentarz"
+            },
+            {
+              "level": "H3",
+              "text": "Główne wejście - portiernia DS1"
+            },
+            {
+              "level": "H3",
+              "text": "Na trawniku, pomiędzy chodnikiem, a jezdnią. Na południe od przystanku autobusowego."
+            },
+            {
+              "level": "H2",
+              "text": "Mapa defibrylatorów"
+            },
+            {
+              "level": "H2",
+              "text": "przy głównym wejściu do ratusza, po prawej stronie"
+            },
+            {
+              "level": "H3",
+              "text": "Jak znaleźć urządzenie?"
+            },
+            {
+              "level": "H3",
+              "text": "Jakość informacji"
+            },
+            {
+              "level": "H3",
+              "text": "Co widzisz na miejscu?"
+            }
+          ]
+        },
+        "violations": [],
+        "passes": [
+          {
+            "id": "aria-allowed-attr",
+            "nodes": 4
+          },
+          {
+            "id": "aria-conditional-attr",
+            "nodes": 4
+          },
+          {
+            "id": "aria-hidden-body",
+            "nodes": 1
+          },
+          {
+            "id": "aria-hidden-focus",
+            "nodes": 7
+          },
+          {
+            "id": "aria-prohibited-attr",
+            "nodes": 4
+          },
+          {
+            "id": "aria-valid-attr-value",
+            "nodes": 4
+          },
+          {
+            "id": "aria-valid-attr",
+            "nodes": 4
+          },
+          {
+            "id": "button-name",
+            "nodes": 6
+          },
+          {
+            "id": "duplicate-id-aria",
+            "nodes": 33
+          },
+          {
+            "id": "label-content-name-mismatch",
+            "nodes": 1
+          },
+          {
+            "id": "link-in-text-block",
+            "nodes": 1
+          },
+          {
+            "id": "link-name",
+            "nodes": 1
+          },
+          {
+            "id": "meta-viewport",
+            "nodes": 1
+          },
+          {
+            "id": "nested-interactive",
+            "nodes": 6
+          },
+          {
+            "id": "scrollable-region-focusable",
+            "nodes": 1
+          },
+          {
+            "id": "target-size",
+            "nodes": 7
+          }
+        ],
+        "inapplicable": [
+          "area-alt",
+          "aria-braille-equivalent",
+          "aria-command-name",
+          "aria-deprecated-role",
+          "aria-input-field-name",
+          "aria-meter-name",
+          "aria-progressbar-name",
+          "aria-required-attr",
+          "aria-required-children",
+          "aria-required-parent",
+          "aria-roles",
+          "aria-tab-name",
+          "aria-toggle-field-name",
+          "aria-tooltip-name",
+          "autocomplete-valid",
+          "avoid-inline-spacing",
+          "blink",
+          "bypass",
+          "definition-list",
+          "dlitem",
+          "document-title",
+          "form-field-multiple-labels",
+          "frame-focusable-content",
+          "frame-title-unique",
+          "frame-title",
+          "html-has-lang",
+          "html-lang-valid",
+          "html-xml-lang-mismatch",
+          "image-alt",
+          "input-button-name",
+          "input-image-alt",
+          "label",
+          "list",
+          "listitem",
+          "marquee",
+          "meta-refresh",
+          "object-alt",
+          "role-img-alt",
+          "select-name",
+          "server-side-image-map",
+          "summary-name",
+          "svg-img-alt",
+          "td-headers-attr",
+          "th-has-data-cells",
+          "valid-lang",
+          "video-caption",
+          "no-autoplay-audio"
+        ],
+        "manual_review_items": [
+          {
+            "id": "color-contrast",
+            "targets": [
+              [
+                ".dialog-top > span"
+              ],
+              [
+                "#close-details"
+              ],
+              [
+                "#aed-detail > .badge.all-day"
+              ],
+              [
+                "#detail-name"
+              ],
+              [
+                ".detail-address"
+              ],
+              [
+                ".detail-location > h3"
+              ],
+              [
+                ".detail-location > p"
+              ],
+              [
+                "#aed-detail > .field-help"
+              ],
+              [
+                "#aed-detail > .button-blue[rel=\"noopener noreferrer\"][target=\"_blank\"]"
+              ],
+              [
+                "#information-quality-title"
+              ],
+              [
+                ".information-quality-value"
+              ],
+              [
+                ".information-quality-help"
+              ],
+              [
+                ".information-quality-date"
+              ],
+              [
+                "#field-report-heading"
+              ],
+              [
+                "#field-report-panel > .field-help"
+              ],
+              [
+                "button[data-report=\"working\"]"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "label": "final-filters",
+        "created_at": "2026-11-22T03:44:04.338Z",
+        "axe_version": "4.14.1",
+        "url": "http://localhost:8091/#mapa",
+        "measurements": {
+          "viewport": {
+            "width": 1261,
+            "height": 850
+          },
+          "overflow": false,
+          "smallTargets": [
+            {
+              "id": "",
+              "text": "Leaflet",
+              "width": 68.484375,
+              "height": 17
+            },
+            {
+              "id": "",
+              "text": "OpenStreetMap",
+              "width": 112.953125,
+              "height": 17
+            },
+            {
+              "id": "",
+              "text": "Źródło: ERC 2025 (PDF, nowa karta)",
+              "width": 248.9375,
+              "height": 21
+            },
+            {
+              "id": "open-now",
+              "text": "",
+              "width": 22,
+              "height": 22
+            },
+            {
+              "id": "auto-refresh",
+              "text": "",
+              "width": 22,
+              "height": 22
+            },
+            {
+              "id": "chaos-geocode",
+              "text": "",
+              "width": 22,
+              "height": 22
+            },
+            {
+              "id": "",
+              "text": "© OpenStreetMap contributors (nowa karta)",
+              "width": 313,
+              "height": 21
+            }
+          ],
+          "headings": [
+            {
+              "level": "H1",
+              "text": "Mapa defibrylatorów"
+            },
+            {
+              "level": "H2",
+              "text": "Nie wiesz, czy użyć AED? Sprawdź w 2 pytaniach"
+            },
+            {
+              "level": "H3",
+              "text": "Czy osoba reaguje, gdy głośno mówisz i delikatnie potrząsasz za ramię?"
+            },
+            {
+              "level": "H2",
+              "text": "Znajdź otwarty defibrylator"
+            },
+            {
+              "level": "H2",
+              "text": "Otwarte urządzenia"
+            },
+            {
+              "level": "H2",
+              "text": "Mapa defibrylatorów"
+            },
+            {
+              "level": "H2",
+              "text": "Pomoc i narzędzia"
+            },
+            {
+              "level": "H2",
+              "text": "Generator kodu QR i tabliczki AED"
+            },
+            {
+              "level": "H2",
+              "text": "Zwaliduj swoją bazę"
+            },
+            {
+              "level": "H2",
+              "text": "Odkurzacz Danych BIP"
+            },
+            {
+              "level": "H3",
+              "text": "Dane wybranego AED"
+            },
+            {
+              "level": "H2",
+              "text": "Ranking Instytucji Publicznych"
+            },
+            {
+              "level": "H2",
+              "text": "Połączone źródła z API dane.gov.pl"
+            },
+            {
+              "level": "H2",
+              "text": "Podgląd zasobu"
+            }
+          ]
+        },
+        "violations": [],
+        "passes": [
+          {
+            "id": "aria-allowed-attr",
+            "nodes": 21
+          },
+          {
+            "id": "aria-conditional-attr",
+            "nodes": 21
+          },
+          {
+            "id": "aria-deprecated-role",
+            "nodes": 8
+          },
+          {
+            "id": "aria-hidden-body",
+            "nodes": 1
+          },
+          {
+            "id": "aria-hidden-focus",
+            "nodes": 9
+          },
+          {
+            "id": "aria-prohibited-attr",
+            "nodes": 21
+          },
+          {
+            "id": "aria-required-attr",
+            "nodes": 8
+          },
+          {
+            "id": "aria-roles",
+            "nodes": 8
+          },
+          {
+            "id": "aria-valid-attr-value",
+            "nodes": 21
+          },
+          {
+            "id": "aria-valid-attr",
+            "nodes": 21
+          },
+          {
+            "id": "autocomplete-valid",
+            "nodes": 1
+          },
+          {
+            "id": "avoid-inline-spacing",
+            "nodes": 2
+          },
+          {
+            "id": "button-name",
+            "nodes": 18
+          },
+          {
+            "id": "bypass",
+            "nodes": 1
+          },
+          {
+            "id": "document-title",
+            "nodes": 1
+          },
+          {
+            "id": "duplicate-id-aria",
+            "nodes": 31
+          },
+          {
+            "id": "form-field-multiple-labels",
+            "nodes": 7
+          },
+          {
+            "id": "html-has-lang",
+            "nodes": 1
+          },
+          {
+            "id": "html-lang-valid",
+            "nodes": 1
+          },
+          {
+            "id": "image-alt",
+            "nodes": 17
+          },
+          {
+            "id": "label-content-name-mismatch",
+            "nodes": 2
+          },
+          {
+            "id": "label",
+            "nodes": 6
+          },
+          {
+            "id": "link-in-text-block",
+            "nodes": 1
+          },
+          {
+            "id": "link-name",
+            "nodes": 10
+          },
+          {
+            "id": "list",
+            "nodes": 2
+          },
+          {
+            "id": "listitem",
+            "nodes": 5
+          },
+          {
+            "id": "meta-viewport",
+            "nodes": 1
+          },
+          {
+            "id": "nested-interactive",
+            "nodes": 31
+          },
+          {
+            "id": "scrollable-region-focusable",
+            "nodes": 1
+          },
+          {
+            "id": "select-name",
+            "nodes": 1
+          },
+          {
+            "id": "summary-name",
+            "nodes": 5
+          },
+          {
+            "id": "target-size",
+            "nodes": 37
+          }
+        ],
+        "inapplicable": [
+          "area-alt",
+          "aria-braille-equivalent",
+          "aria-command-name",
+          "aria-input-field-name",
+          "aria-meter-name",
+          "aria-progressbar-name",
+          "aria-required-children",
+          "aria-required-parent",
+          "aria-tab-name",
+          "aria-toggle-field-name",
+          "aria-tooltip-name",
+          "blink",
+          "definition-list",
+          "dlitem",
+          "frame-focusable-content",
+          "frame-title-unique",
+          "frame-title",
+          "html-xml-lang-mismatch",
+          "input-button-name",
+          "input-image-alt",
+          "marquee",
+          "meta-refresh",
+          "object-alt",
+          "role-img-alt",
+          "server-side-image-map",
+          "svg-img-alt",
+          "td-headers-attr",
+          "th-has-data-cells",
+          "valid-lang",
+          "video-caption",
+          "no-autoplay-audio"
+        ],
+        "manual_review_items": [
+          {
+            "id": "color-contrast",
+            "targets": [
+              [
+                "a[href$=\"leafletjs.com\"]"
+              ]
+            ]
+          },
+          {
+            "id": "label-content-name-mismatch",
+            "targets": [
+              [
+                ".leaflet-control-zoom-in"
+              ],
+              [
+                ".leaflet-control-zoom-out"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "label": "final-high-contrast",
+        "created_at": "2026-11-22T03:33:04.969Z",
+        "axe_version": "4.14.1",
+        "url": "http://localhost:8091/#mapa",
+        "measurements": {
+          "viewport": {
+            "width": 1261,
+            "height": 850
+          },
+          "overflow": false,
+          "smallTargets": [
+            {
+              "id": "",
+              "text": "Leaflet",
+              "width": 68.484375,
+              "height": 17
+            },
+            {
+              "id": "",
+              "text": "OpenStreetMap",
+              "width": 112.953125,
+              "height": 17
+            },
+            {
+              "id": "",
+              "text": "Źródło: ERC 2025 (PDF, nowa karta)",
+              "width": 248.9375,
+              "height": 21
+            },
+            {
+              "id": "open-now",
+              "text": "",
+              "width": 22,
+              "height": 22
+            },
+            {
+              "id": "chaos-geocode",
+              "text": "",
+              "width": 22,
+              "height": 22
+            },
+            {
+              "id": "",
+              "text": "© OpenStreetMap contributors (nowa karta)",
+              "width": 313,
+              "height": 21
+            }
+          ],
+          "headings": [
+            {
+              "level": "H1",
+              "text": "Mapa defibrylatorów"
+            },
+            {
+              "level": "H2",
+              "text": "Nie wiesz, czy użyć AED? Sprawdź w 2 pytaniach"
+            },
+            {
+              "level": "H3",
+              "text": "Czy osoba reaguje, gdy głośno mówisz i delikatnie potrząsasz za ramię?"
+            },
+            {
+              "level": "H2",
+              "text": "Znajdź otwarty defibrylator"
+            },
+            {
+              "level": "H3",
+              "text": "Najbliższe otwarte urządzenia"
+            },
+            {
+              "level": "H4",
+              "text": "przy głównym wejściu do ratusza, po prawej stronie"
+            },
+            {
+              "level": "H4",
+              "text": "Defibrylator"
+            },
+            {
+              "level": "H4",
+              "text": "Defibrylator"
+            },
+            {
+              "level": "H2",
+              "text": "Otwarte urządzenia"
+            },
+            {
+              "level": "H3",
+              "text": "Przed wejściem na cmentarz"
+            },
+            {
+              "level": "H3",
+              "text": "Główne wejście - portiernia DS1"
+            },
+            {
+              "level": "H3",
+              "text": "Na trawniku, pomiędzy chodnikiem, a jezdnią. Na południe od przystanku autobusowego."
+            },
+            {
+              "level": "H2",
+              "text": "Mapa defibrylatorów"
+            },
+            {
+              "level": "H2",
+              "text": "Pomoc i narzędzia"
+            },
+            {
+              "level": "H2",
+              "text": "Generator kodu QR i tabliczki AED"
+            },
+            {
+              "level": "H2",
+              "text": "Zwaliduj swoją bazę"
+            },
+            {
+              "level": "H2",
+              "text": "Odkurzacz Danych BIP"
+            },
+            {
+              "level": "H3",
+              "text": "Dane wybranego AED"
+            },
+            {
+              "level": "H3",
+              "text": "przy głównym wejściu do ratusza, po prawej stronie"
+            },
+            {
+              "level": "H3",
+              "text": "Wiarygodność danych (Confidence Score): 52%"
+            },
+            {
+              "level": "H3",
+              "text": "Źródła referencyjne"
+            },
+            {
+              "level": "H2",
+              "text": "Ranking Instytucji Publicznych"
+            },
+            {
+              "level": "H2",
+              "text": "Połączone źródła z API dane.gov.pl"
+            },
+            {
+              "level": "H2",
+              "text": "Podgląd zasobu"
+            }
+          ]
+        },
+        "violations": [],
+        "passes": [
+          {
+            "id": "aria-allowed-attr",
+            "nodes": 31
+          },
+          {
+            "id": "aria-conditional-attr",
+            "nodes": 31
+          },
+          {
+            "id": "aria-deprecated-role",
+            "nodes": 8
+          },
+          {
+            "id": "aria-hidden-body",
+            "nodes": 1
+          },
+          {
+            "id": "aria-hidden-focus",
+            "nodes": 11
+          },
+          {
+            "id": "aria-prohibited-attr",
+            "nodes": 31
+          },
+          {
+            "id": "aria-required-attr",
+            "nodes": 8
+          },
+          {
+            "id": "aria-roles",
+            "nodes": 8
+          },
+          {
+            "id": "aria-valid-attr-value",
+            "nodes": 31
+          },
+          {
+            "id": "aria-valid-attr",
+            "nodes": 31
+          },
+          {
+            "id": "autocomplete-valid",
+            "nodes": 1
+          },
+          {
+            "id": "avoid-inline-spacing",
+            "nodes": 3
+          },
+          {
+            "id": "button-name",
+            "nodes": 27
+          },
+          {
+            "id": "bypass",
+            "nodes": 1
+          },
+          {
+            "id": "document-title",
+            "nodes": 1
+          },
+          {
+            "id": "duplicate-id-aria",
+            "nodes": 33
+          },
+          {
+            "id": "form-field-multiple-labels",
+            "nodes": 1
+          },
+          {
+            "id": "html-has-lang",
+            "nodes": 1
+          },
+          {
+            "id": "html-lang-valid",
+            "nodes": 1
+          },
+          {
+            "id": "image-alt",
+            "nodes": 16
+          },
+          {
+            "id": "label-content-name-mismatch",
+            "nodes": 9
+          },
+          {
+            "id": "label",
+            "nodes": 1
+          },
+          {
+            "id": "link-in-text-block",
+            "nodes": 1
+          },
+          {
+            "id": "link-name",
+            "nodes": 13
+          },
+          {
+            "id": "list",
+            "nodes": 2
+          },
+          {
+            "id": "listitem",
+            "nodes": 8
+          },
+          {
+            "id": "meta-viewport",
+            "nodes": 1
+          },
+          {
+            "id": "nested-interactive",
+            "nodes": 35
+          },
+          {
+            "id": "scrollable-region-focusable",
+            "nodes": 1
+          },
+          {
+            "id": "summary-name",
+            "nodes": 5
+          },
+          {
+            "id": "target-size",
+            "nodes": 42
+          }
+        ],
+        "inapplicable": [
+          "area-alt",
+          "aria-braille-equivalent",
+          "aria-command-name",
+          "aria-input-field-name",
+          "aria-meter-name",
+          "aria-progressbar-name",
+          "aria-required-children",
+          "aria-required-parent",
+          "aria-tab-name",
+          "aria-toggle-field-name",
+          "aria-tooltip-name",
+          "blink",
+          "definition-list",
+          "dlitem",
+          "frame-focusable-content",
+          "frame-title-unique",
+          "frame-title",
+          "html-xml-lang-mismatch",
+          "input-button-name",
+          "input-image-alt",
+          "marquee",
+          "meta-refresh",
+          "object-alt",
+          "role-img-alt",
+          "select-name",
+          "server-side-image-map",
+          "svg-img-alt",
+          "td-headers-attr",
+          "th-has-data-cells",
+          "valid-lang",
+          "video-caption",
+          "no-autoplay-audio"
+        ],
+        "manual_review_items": [
+          {
+            "id": "color-contrast",
+            "targets": [
+              [
+                ".leaflet-marker-icon.aed-map-marker.leaflet-interactive:nth-child(4) > .map-pin.all-day > span"
+              ]
+            ]
+          },
+          {
+            "id": "label-content-name-mismatch",
+            "targets": [
+              [
+                ".leaflet-control-zoom-in"
+              ],
+              [
+                ".leaflet-control-zoom-out"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "label": "final-main",
+        "created_at": "2026-11-22T03:44:03.532Z",
+        "axe_version": "4.14.1",
+        "url": "http://localhost:8091/#mapa",
+        "measurements": {
+          "viewport": {
+            "width": 1261,
+            "height": 850
+          },
+          "overflow": false,
+          "smallTargets": [
+            {
+              "id": "",
+              "text": "Leaflet",
+              "width": 68.484375,
+              "height": 17
+            },
+            {
+              "id": "",
+              "text": "OpenStreetMap",
+              "width": 112.953125,
+              "height": 17
+            },
+            {
+              "id": "",
+              "text": "© OpenStreetMap contributors (nowa karta)",
+              "width": 313,
+              "height": 21
+            }
+          ],
+          "headings": [
+            {
+              "level": "H1",
+              "text": "Mapa defibrylatorów"
+            },
+            {
+              "level": "H2",
+              "text": "Nie wiesz, czy użyć AED? Sprawdź w 2 pytaniach"
+            },
+            {
+              "level": "H3",
+              "text": "Czy osoba reaguje, gdy głośno mówisz i delikatnie potrząsasz za ramię?"
+            },
+            {
+              "level": "H2",
+              "text": "Znajdź otwarty defibrylator"
+            },
+            {
+              "level": "H2",
+              "text": "Otwarte urządzenia"
+            },
+            {
+              "level": "H2",
+              "text": "Mapa defibrylatorów"
+            }
+          ]
+        },
+        "violations": [],
+        "passes": [
+          {
+            "id": "aria-allowed-attr",
+            "nodes": 17
+          },
+          {
+            "id": "aria-conditional-attr",
+            "nodes": 17
+          },
+          {
+            "id": "aria-deprecated-role",
+            "nodes": 6
+          },
+          {
+            "id": "aria-hidden-body",
+            "nodes": 1
+          },
+          {
+            "id": "aria-hidden-focus",
+            "nodes": 9
+          },
+          {
+            "id": "aria-prohibited-attr",
+            "nodes": 17
+          },
+          {
+            "id": "aria-required-attr",
+            "nodes": 6
+          },
+          {
+            "id": "aria-roles",
+            "nodes": 6
+          },
+          {
+            "id": "aria-valid-attr-value",
+            "nodes": 17
+          },
+          {
+            "id": "aria-valid-attr",
+            "nodes": 17
+          },
+          {
+            "id": "autocomplete-valid",
+            "nodes": 1
+          },
+          {
+            "id": "avoid-inline-spacing",
+            "nodes": 2
+          },
+          {
+            "id": "button-name",
+            "nodes": 6
+          },
+          {
+            "id": "bypass",
+            "nodes": 1
+          },
+          {
+            "id": "document-title",
+            "nodes": 1
+          },
+          {
+            "id": "duplicate-id-aria",
+            "nodes": 31
+          },
+          {
+            "id": "form-field-multiple-labels",
+            "nodes": 1
+          },
+          {
+            "id": "html-has-lang",
+            "nodes": 1
+          },
+          {
+            "id": "html-lang-valid",
+            "nodes": 1
+          },
+          {
+            "id": "image-alt",
+            "nodes": 17
+          },
+          {
+            "id": "label-content-name-mismatch",
+            "nodes": 2
+          },
+          {
+            "id": "label",
+            "nodes": 1
+          },
+          {
+            "id": "link-in-text-block",
+            "nodes": 1
+          },
+          {
+            "id": "link-name",
+            "nodes": 8
+          },
+          {
+            "id": "list",
+            "nodes": 1
+          },
+          {
+            "id": "meta-viewport",
+            "nodes": 1
+          },
+          {
+            "id": "nested-interactive",
+            "nodes": 9
+          },
+          {
+            "id": "target-size",
+            "nodes": 12
+          }
+        ],
+        "inapplicable": [
+          "area-alt",
+          "aria-braille-equivalent",
+          "aria-command-name",
+          "aria-input-field-name",
+          "aria-meter-name",
+          "aria-progressbar-name",
+          "aria-required-children",
+          "aria-required-parent",
+          "aria-tab-name",
+          "aria-toggle-field-name",
+          "aria-tooltip-name",
+          "blink",
+          "definition-list",
+          "dlitem",
+          "frame-focusable-content",
+          "frame-title-unique",
+          "frame-title",
+          "html-xml-lang-mismatch",
+          "input-button-name",
+          "input-image-alt",
+          "listitem",
+          "marquee",
+          "meta-refresh",
+          "object-alt",
+          "role-img-alt",
+          "scrollable-region-focusable",
+          "select-name",
+          "server-side-image-map",
+          "summary-name",
+          "svg-img-alt",
+          "td-headers-attr",
+          "th-has-data-cells",
+          "valid-lang",
+          "video-caption",
+          "no-autoplay-audio"
+        ],
+        "manual_review_items": [
+          {
+            "id": "color-contrast",
+            "targets": [
+              [
+                "a[href$=\"leafletjs.com\"]"
+              ]
+            ]
+          },
+          {
+            "id": "label-content-name-mismatch",
+            "targets": [
+              [
+                ".leaflet-control-zoom-in"
+              ],
+              [
+                ".leaflet-control-zoom-out"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "label": "final-mobile-320",
+        "created_at": "2026-11-22T03:36:33.565Z",
+        "axe_version": "4.14.1",
+        "url": "http://localhost:8091/#mapa",
+        "measurements": {
+          "viewport": {
+            "width": 320,
+            "height": 850
+          },
+          "overflow": false,
+          "smallTargets": [
+            {
+              "id": "",
+              "text": "Leaflet",
+              "width": 68.484375,
+              "height": 17
+            },
+            {
+              "id": "",
+              "text": "OpenStreetMap",
+              "width": 112.953125,
+              "height": 17
+            }
+          ],
+          "headings": [
+            {
+              "level": "H1",
+              "text": "Mapa defibrylatorów"
+            },
+            {
+              "level": "H2",
+              "text": "Nie wiesz, czy użyć AED? Sprawdź w 2 pytaniach"
+            },
+            {
+              "level": "H3",
+              "text": "Czy osoba reaguje, gdy głośno mówisz i delikatnie potrząsasz za ramię?"
+            },
+            {
+              "level": "H2",
+              "text": "Znajdź otwarty defibrylator"
+            },
+            {
+              "level": "H2",
+              "text": "Otwarte urządzenia"
+            },
+            {
+              "level": "H2",
+              "text": "Mapa defibrylatorów"
+            }
+          ]
+        },
+        "violations": [],
+        "passes": [
+          {
+            "id": "aria-allowed-attr",
+            "nodes": 17
+          },
+          {
+            "id": "aria-conditional-attr",
+            "nodes": 17
+          },
+          {
+            "id": "aria-deprecated-role",
+            "nodes": 6
+          },
+          {
+            "id": "aria-hidden-body",
+            "nodes": 1
+          },
+          {
+            "id": "aria-hidden-focus",
+            "nodes": 9
+          },
+          {
+            "id": "aria-prohibited-attr",
+            "nodes": 17
+          },
+          {
+            "id": "aria-required-attr",
+            "nodes": 6
+          },
+          {
+            "id": "aria-roles",
+            "nodes": 6
+          },
+          {
+            "id": "aria-valid-attr-value",
+            "nodes": 17
+          },
+          {
+            "id": "aria-valid-attr",
+            "nodes": 17
+          },
+          {
+            "id": "autocomplete-valid",
+            "nodes": 1
+          },
+          {
+            "id": "avoid-inline-spacing",
+            "nodes": 2
+          },
+          {
+            "id": "button-name",
+            "nodes": 6
+          },
+          {
+            "id": "bypass",
+            "nodes": 1
+          },
+          {
+            "id": "document-title",
+            "nodes": 1
+          },
+          {
+            "id": "duplicate-id-aria",
+            "nodes": 31
+          },
+          {
+            "id": "form-field-multiple-labels",
+            "nodes": 1
+          },
+          {
+            "id": "html-has-lang",
+            "nodes": 1
+          },
+          {
+            "id": "html-lang-valid",
+            "nodes": 1
+          },
+          {
+            "id": "image-alt",
+            "nodes": 17
+          },
+          {
+            "id": "label-content-name-mismatch",
+            "nodes": 2
+          },
+          {
+            "id": "label",
+            "nodes": 1
+          },
+          {
+            "id": "link-in-text-block",
+            "nodes": 1
+          },
+          {
+            "id": "link-name",
+            "nodes": 8
+          },
+          {
+            "id": "list",
+            "nodes": 1
+          },
+          {
+            "id": "meta-viewport",
+            "nodes": 1
+          },
+          {
+            "id": "nested-interactive",
+            "nodes": 9
+          },
+          {
+            "id": "target-size",
+            "nodes": 12
+          }
+        ],
+        "inapplicable": [
+          "area-alt",
+          "aria-braille-equivalent",
+          "aria-command-name",
+          "aria-input-field-name",
+          "aria-meter-name",
+          "aria-progressbar-name",
+          "aria-required-children",
+          "aria-required-parent",
+          "aria-tab-name",
+          "aria-toggle-field-name",
+          "aria-tooltip-name",
+          "blink",
+          "definition-list",
+          "dlitem",
+          "frame-focusable-content",
+          "frame-title-unique",
+          "frame-title",
+          "html-xml-lang-mismatch",
+          "input-button-name",
+          "input-image-alt",
+          "listitem",
+          "marquee",
+          "meta-refresh",
+          "object-alt",
+          "role-img-alt",
+          "scrollable-region-focusable",
+          "select-name",
+          "server-side-image-map",
+          "summary-name",
+          "svg-img-alt",
+          "td-headers-attr",
+          "th-has-data-cells",
+          "valid-lang",
+          "video-caption",
+          "no-autoplay-audio"
+        ],
+        "manual_review_items": [
+          {
+            "id": "color-contrast",
+            "targets": [
+              [
+                "a[href$=\"leafletjs.com\"]"
+              ]
+            ]
+          },
+          {
+            "id": "label-content-name-mismatch",
+            "targets": [
+              [
+                ".leaflet-control-zoom-in"
+              ],
+              [
+                ".leaflet-control-zoom-out"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "label": "final-mobile-drawer",
+        "created_at": "2026-11-22T03:37:04.298Z",
+        "axe_version": "4.14.1",
+        "url": "http://localhost:8091/#mapa",
+        "measurements": {
+          "viewport": {
+            "width": 390,
+            "height": 850
+          },
+          "overflow": false,
+          "smallTargets": [
+            {
+              "id": "",
+              "text": "Źródło: ERC 2025 (PDF, nowa karta)",
+              "width": 248.9375,
+              "height": 21
+            },
+            {
+              "id": "open-now",
+              "text": "",
+              "width": 22,
+              "height": 22
+            },
+            {
+              "id": "chaos-geocode",
+              "text": "",
+              "width": 22,
+              "height": 22
+            }
+          ],
+          "headings": [
+            {
+              "level": "H1",
+              "text": "Mapa defibrylatorów"
+            },
+            {
+              "level": "H2",
+              "text": "Nie wiesz, czy użyć AED? Sprawdź w 2 pytaniach"
+            },
+            {
+              "level": "H3",
+              "text": "Czy osoba reaguje, gdy głośno mówisz i delikatnie potrząsasz za ramię?"
+            },
+            {
+              "level": "H2",
+              "text": "Znajdź otwarty defibrylator"
+            },
+            {
+              "level": "H2",
+              "text": "Otwarte urządzenia"
+            },
+            {
+              "level": "H3",
+              "text": "Defibrylator (AED 9469) Muzeum Dzwonów i Fajek"
+            },
+            {
+              "level": "H3",
+              "text": "Bosman Portu Rybackiego"
+            },
+            {
+              "level": "H3",
+              "text": "Komisariat Policji"
+            },
+            {
+              "level": "H2",
+              "text": "Mapa defibrylatorów"
+            },
+            {
+              "level": "H2",
+              "text": "Pomoc i narzędzia"
+            },
+            {
+              "level": "H2",
+              "text": "Generator kodu QR i tabliczki AED"
+            },
+            {
+              "level": "H2",
+              "text": "Zwaliduj swoją bazę"
+            },
+            {
+              "level": "H2",
+              "text": "Odkurzacz Danych BIP"
+            },
+            {
+              "level": "H3",
+              "text": "Dane wybranego AED"
+            },
+            {
+              "level": "H2",
+              "text": "Ranking Instytucji Publicznych"
+            },
+            {
+              "level": "H2",
+              "text": "Połączone źródła z API dane.gov.pl"
+            },
+            {
+              "level": "H2",
+              "text": "Podgląd zasobu"
+            }
+          ]
+        },
+        "violations": [],
+        "passes": [
+          {
+            "id": "aria-allowed-attr",
+            "nodes": 6
+          },
+          {
+            "id": "aria-conditional-attr",
+            "nodes": 6
+          },
+          {
+            "id": "aria-deprecated-role",
+            "nodes": 4
+          },
+          {
+            "id": "aria-hidden-body",
+            "nodes": 1
+          },
+          {
+            "id": "aria-hidden-focus",
+            "nodes": 9
+          },
+          {
+            "id": "aria-prohibited-attr",
+            "nodes": 6
+          },
+          {
+            "id": "aria-required-attr",
+            "nodes": 4
+          },
+          {
+            "id": "aria-roles",
+            "nodes": 4
+          },
+          {
+            "id": "aria-valid-attr-value",
+            "nodes": 6
+          },
+          {
+            "id": "aria-valid-attr",
+            "nodes": 6
+          },
+          {
+            "id": "avoid-inline-spacing",
+            "nodes": 1
+          },
+          {
+            "id": "button-name",
+            "nodes": 6
+          },
+          {
+            "id": "bypass",
+            "nodes": 1
+          },
+          {
+            "id": "color-contrast",
+            "nodes": 25
+          },
+          {
+            "id": "document-title",
+            "nodes": 1
+          },
+          {
+            "id": "duplicate-id-aria",
+            "nodes": 31
+          },
+          {
+            "id": "html-has-lang",
+            "nodes": 1
+          },
+          {
+            "id": "html-lang-valid",
+            "nodes": 1
+          },
+          {
+            "id": "link-in-text-block",
+            "nodes": 1
+          },
+          {
+            "id": "link-name",
+            "nodes": 3
+          },
+          {
+            "id": "list",
+            "nodes": 1
+          },
+          {
+            "id": "listitem",
+            "nodes": 5
+          },
+          {
+            "id": "meta-viewport",
+            "nodes": 1
+          },
+          {
+            "id": "nested-interactive",
+            "nodes": 11
+          },
+          {
+            "id": "scrollable-region-focusable",
+            "nodes": 1
+          },
+          {
+            "id": "summary-name",
+            "nodes": 5
+          },
+          {
+            "id": "target-size",
+            "nodes": 14
+          }
+        ],
+        "inapplicable": [
+          "area-alt",
+          "aria-braille-equivalent",
+          "aria-command-name",
+          "aria-input-field-name",
+          "aria-meter-name",
+          "aria-progressbar-name",
+          "aria-required-children",
+          "aria-required-parent",
+          "aria-tab-name",
+          "aria-toggle-field-name",
+          "aria-tooltip-name",
+          "autocomplete-valid",
+          "blink",
+          "definition-list",
+          "dlitem",
+          "form-field-multiple-labels",
+          "frame-focusable-content",
+          "frame-title-unique",
+          "frame-title",
+          "html-xml-lang-mismatch",
+          "image-alt",
+          "input-button-name",
+          "input-image-alt",
+          "label-content-name-mismatch",
+          "label",
+          "marquee",
+          "meta-refresh",
+          "object-alt",
+          "role-img-alt",
+          "select-name",
+          "server-side-image-map",
+          "svg-img-alt",
+          "td-headers-attr",
+          "th-has-data-cells",
+          "valid-lang",
+          "video-caption",
+          "no-autoplay-audio"
+        ],
+        "manual_review_items": []
+      },
+      {
+        "label": "final-owner",
+        "created_at": "2026-11-22T03:31:12.959Z",
+        "axe_version": "4.14.1",
+        "url": "http://127.0.0.1:8091/#mapa",
+        "measurements": {
+          "viewport": {
+            "width": 1261,
+            "height": 850
+          },
+          "overflow": false,
+          "smallTargets": [
+            {
+              "id": "",
+              "text": "Leaflet",
+              "width": 68.484375,
+              "height": 17
+            },
+            {
+              "id": "",
+              "text": "OpenStreetMap",
+              "width": 112.953125,
+              "height": 17
+            },
+            {
+              "id": "",
+              "text": "Źródło: ERC 2025 (PDF, nowa karta)",
+              "width": 248.9375,
+              "height": 21
+            },
+            {
+              "id": "open-now",
+              "text": "",
+              "width": 22,
+              "height": 22
+            },
+            {
+              "id": "chaos-geocode",
+              "text": "",
+              "width": 22,
+              "height": 22
+            },
+            {
+              "id": "",
+              "text": "© OpenStreetMap contributors (nowa karta)",
+              "width": 313,
+              "height": 21
+            }
+          ],
+          "headings": [
+            {
+              "level": "H1",
+              "text": "Mapa defibrylatorów"
+            },
+            {
+              "level": "H2",
+              "text": "Nie wiesz, czy użyć AED? Sprawdź w 2 pytaniach"
+            },
+            {
+              "level": "H3",
+              "text": "Czy osoba reaguje, gdy głośno mówisz i delikatnie potrząsasz za ramię?"
+            },
+            {
+              "level": "H2",
+              "text": "Znajdź otwarty defibrylator"
+            },
+            {
+              "level": "H2",
+              "text": "Otwarte urządzenia"
+            },
+            {
+              "level": "H3",
+              "text": "Defibrylator (AED 9469) Muzeum Dzwonów i Fajek"
+            },
+            {
+              "level": "H3",
+              "text": "Bosman Portu Rybackiego"
+            },
+            {
+              "level": "H3",
+              "text": "Komisariat Policji"
+            },
+            {
+              "level": "H2",
+              "text": "Mapa defibrylatorów"
+            },
+            {
+              "level": "H2",
+              "text": "Pomoc i narzędzia"
+            },
+            {
+              "level": "H2",
+              "text": "Generator kodu QR i tabliczki AED"
+            },
+            {
+              "level": "H2",
+              "text": "Zwaliduj swoją bazę"
+            },
+            {
+              "level": "H2",
+              "text": "Odkurzacz Danych BIP"
+            },
+            {
+              "level": "H3",
+              "text": "Dane wybranego AED"
+            },
+            {
+              "level": "H2",
+              "text": "Ranking Instytucji Publicznych"
+            },
+            {
+              "level": "H2",
+              "text": "Połączone źródła z API dane.gov.pl"
+            },
+            {
+              "level": "H2",
+              "text": "Podgląd zasobu"
+            }
+          ]
+        },
+        "violations": [],
+        "passes": [
+          {
+            "id": "aria-allowed-attr",
+            "nodes": 33
+          },
+          {
+            "id": "aria-conditional-attr",
+            "nodes": 33
+          },
+          {
+            "id": "aria-deprecated-role",
+            "nodes": 7
+          },
+          {
+            "id": "aria-hidden-body",
+            "nodes": 1
+          },
+          {
+            "id": "aria-hidden-focus",
+            "nodes": 9
+          },
+          {
+            "id": "aria-prohibited-attr",
+            "nodes": 33
+          },
+          {
+            "id": "aria-required-attr",
+            "nodes": 7
+          },
+          {
+            "id": "aria-roles",
+            "nodes": 7
+          },
+          {
+            "id": "aria-valid-attr-value",
+            "nodes": 33
+          },
+          {
+            "id": "aria-valid-attr",
+            "nodes": 33
+          },
+          {
+            "id": "autocomplete-valid",
+            "nodes": 1
+          },
+          {
+            "id": "avoid-inline-spacing",
+            "nodes": 3
+          },
+          {
+            "id": "button-name",
+            "nodes": 21
+          },
+          {
+            "id": "bypass",
+            "nodes": 1
+          },
+          {
+            "id": "document-title",
+            "nodes": 1
+          },
+          {
+            "id": "duplicate-id-aria",
+            "nodes": 31
+          },
+          {
+            "id": "form-field-multiple-labels",
+            "nodes": 8
+          },
+          {
+            "id": "html-has-lang",
+            "nodes": 1
+          },
+          {
+            "id": "html-lang-valid",
+            "nodes": 1
+          },
+          {
+            "id": "image-alt",
+            "nodes": 17
+          },
+          {
+            "id": "label-content-name-mismatch",
+            "nodes": 6
+          },
+          {
+            "id": "label",
+            "nodes": 8
+          },
+          {
+            "id": "link-in-text-block",
+            "nodes": 1
+          },
+          {
+            "id": "link-name",
+            "nodes": 9
+          },
+          {
+            "id": "list",
+            "nodes": 1
+          },
+          {
+            "id": "listitem",
+            "nodes": 3
+          },
+          {
+            "id": "meta-viewport",
+            "nodes": 1
+          },
+          {
+            "id": "nested-interactive",
+            "nodes": 30
+          },
+          {
+            "id": "scrollable-region-focusable",
+            "nodes": 1
+          },
+          {
+            "id": "summary-name",
+            "nodes": 5
+          },
+          {
+            "id": "target-size",
+            "nodes": 38
+          }
+        ],
+        "inapplicable": [
+          "area-alt",
+          "aria-braille-equivalent",
+          "aria-command-name",
+          "aria-input-field-name",
+          "aria-meter-name",
+          "aria-progressbar-name",
+          "aria-required-children",
+          "aria-required-parent",
+          "aria-tab-name",
+          "aria-toggle-field-name",
+          "aria-tooltip-name",
+          "blink",
+          "definition-list",
+          "dlitem",
+          "frame-focusable-content",
+          "frame-title-unique",
+          "frame-title",
+          "html-xml-lang-mismatch",
+          "input-button-name",
+          "input-image-alt",
+          "marquee",
+          "meta-refresh",
+          "object-alt",
+          "role-img-alt",
+          "select-name",
+          "server-side-image-map",
+          "svg-img-alt",
+          "td-headers-attr",
+          "th-has-data-cells",
+          "valid-lang",
+          "video-caption",
+          "no-autoplay-audio"
+        ],
+        "manual_review_items": [
+          {
+            "id": "color-contrast",
+            "targets": [
+              [
+                ".aed-cluster--large.leaflet-marker-icon.aed-cluster:nth-child(1) > span"
+              ]
+            ]
+          },
+          {
+            "id": "label-content-name-mismatch",
+            "targets": [
+              [
+                ".leaflet-control-zoom-in"
+              ],
+              [
+                ".leaflet-control-zoom-out"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "label": "final-rescue",
+        "created_at": "2026-11-22T03:32:43.409Z",
+        "axe_version": "4.14.1",
+        "url": "http://localhost:8091/#mapa",
+        "measurements": {
+          "viewport": {
+            "width": 1261,
+            "height": 850
+          },
+          "overflow": false,
+          "smallTargets": [
+            {
+              "id": "",
+              "text": "Leaflet",
+              "width": 68.484375,
+              "height": 17
+            },
+            {
+              "id": "",
+              "text": "OpenStreetMap",
+              "width": 112.953125,
+              "height": 17
+            },
+            {
+              "id": "",
+              "text": "© OpenStreetMap contributors (nowa karta)",
+              "width": 313,
+              "height": 21
+            }
+          ],
+          "headings": [
+            {
+              "level": "H1",
+              "text": "Mapa defibrylatorów"
+            },
+            {
+              "level": "H2",
+              "text": "Nie wiesz, czy użyć AED? Sprawdź w 2 pytaniach"
+            },
+            {
+              "level": "H3",
+              "text": "Czy osoba reaguje, gdy głośno mówisz i delikatnie potrząsasz za ramię?"
+            },
+            {
+              "level": "H2",
+              "text": "Znajdź otwarty defibrylator"
+            },
+            {
+              "level": "H3",
+              "text": "Najbliższe otwarte urządzenia"
+            },
+            {
+              "level": "H4",
+              "text": "przy głównym wejściu do ratusza, po prawej stronie"
+            },
+            {
+              "level": "H4",
+              "text": "Defibrylator"
+            },
+            {
+              "level": "H4",
+              "text": "Defibrylator"
+            },
+            {
+              "level": "H2",
+              "text": "Otwarte urządzenia"
+            },
+            {
+              "level": "H3",
+              "text": "Przed wejściem na cmentarz"
+            },
+            {
+              "level": "H3",
+              "text": "Główne wejście - portiernia DS1"
+            },
+            {
+              "level": "H3",
+              "text": "Na trawniku, pomiędzy chodnikiem, a jezdnią. Na południe od przystanku autobusowego."
+            },
+            {
+              "level": "H2",
+              "text": "Mapa defibrylatorów"
+            }
+          ]
+        },
+        "violations": [],
+        "passes": [
+          {
+            "id": "aria-allowed-attr",
+            "nodes": 24
+          },
+          {
+            "id": "aria-conditional-attr",
+            "nodes": 24
+          },
+          {
+            "id": "aria-deprecated-role",
+            "nodes": 6
+          },
+          {
+            "id": "aria-hidden-body",
+            "nodes": 1
+          },
+          {
+            "id": "aria-hidden-focus",
+            "nodes": 6
+          },
+          {
+            "id": "aria-prohibited-attr",
+            "nodes": 24
+          },
+          {
+            "id": "aria-required-attr",
+            "nodes": 6
+          },
+          {
+            "id": "aria-roles",
+            "nodes": 6
+          },
+          {
+            "id": "aria-valid-attr-value",
+            "nodes": 24
+          },
+          {
+            "id": "aria-valid-attr",
+            "nodes": 24
+          },
+          {
+            "id": "autocomplete-valid",
+            "nodes": 1
+          },
+          {
+            "id": "avoid-inline-spacing",
+            "nodes": 3
+          },
+          {
+            "id": "button-name",
+            "nodes": 17
+          },
+          {
+            "id": "bypass",
+            "nodes": 1
+          },
+          {
+            "id": "document-title",
+            "nodes": 1
+          },
+          {
+            "id": "duplicate-id-aria",
+            "nodes": 31
+          },
+          {
+            "id": "form-field-multiple-labels",
+            "nodes": 1
+          },
+          {
+            "id": "html-has-lang",
+            "nodes": 1
+          },
+          {
+            "id": "html-lang-valid",
+            "nodes": 1
+          },
+          {
+            "id": "image-alt",
+            "nodes": 13
+          },
+          {
+            "id": "label-content-name-mismatch",
+            "nodes": 8
+          },
+          {
+            "id": "label",
+            "nodes": 1
+          },
+          {
+            "id": "link-in-text-block",
+            "nodes": 1
+          },
+          {
+            "id": "link-name",
+            "nodes": 11
+          },
+          {
+            "id": "list",
+            "nodes": 1
+          },
+          {
+            "id": "listitem",
+            "nodes": 3
+          },
+          {
+            "id": "meta-viewport",
+            "nodes": 1
+          },
+          {
+            "id": "nested-interactive",
+            "nodes": 20
+          },
+          {
+            "id": "target-size",
+            "nodes": 25
+          }
+        ],
+        "inapplicable": [
+          "area-alt",
+          "aria-braille-equivalent",
+          "aria-command-name",
+          "aria-input-field-name",
+          "aria-meter-name",
+          "aria-progressbar-name",
+          "aria-required-children",
+          "aria-required-parent",
+          "aria-tab-name",
+          "aria-toggle-field-name",
+          "aria-tooltip-name",
+          "blink",
+          "definition-list",
+          "dlitem",
+          "frame-focusable-content",
+          "frame-title-unique",
+          "frame-title",
+          "html-xml-lang-mismatch",
+          "input-button-name",
+          "input-image-alt",
+          "marquee",
+          "meta-refresh",
+          "object-alt",
+          "role-img-alt",
+          "scrollable-region-focusable",
+          "select-name",
+          "server-side-image-map",
+          "summary-name",
+          "svg-img-alt",
+          "td-headers-attr",
+          "th-has-data-cells",
+          "valid-lang",
+          "video-caption",
+          "no-autoplay-audio"
+        ],
+        "manual_review_items": [
+          {
+            "id": "color-contrast",
+            "targets": [
+              [
+                ".leaflet-marker-icon.aed-map-marker.leaflet-interactive:nth-child(4) > .map-pin.all-day > span"
+              ]
+            ]
+          },
+          {
+            "id": "label-content-name-mismatch",
+            "targets": [
+              [
+                ".leaflet-control-zoom-in"
+              ],
+              [
+                ".leaflet-control-zoom-out"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "label": "final-text-200",
+        "created_at": "2026-11-22T03:36:34.194Z",
+        "axe_version": "4.14.1",
+        "url": "http://localhost:8091/#mapa",
+        "measurements": {
+          "viewport": {
+            "width": 320,
+            "height": 850
+          },
+          "overflow": false,
+          "smallTargets": [],
+          "headings": [
+            {
+              "level": "H1",
+              "text": "Mapa defibrylatorów"
+            },
+            {
+              "level": "H2",
+              "text": "Nie wiesz, czy użyć AED? Sprawdź w 2 pytaniach"
+            },
+            {
+              "level": "H3",
+              "text": "Czy osoba reaguje, gdy głośno mówisz i delikatnie potrząsasz za ramię?"
+            },
+            {
+              "level": "H2",
+              "text": "Znajdź otwarty defibrylator"
+            },
+            {
+              "level": "H2",
+              "text": "Otwarte urządzenia"
+            },
+            {
+              "level": "H2",
+              "text": "Mapa defibrylatorów"
+            }
+          ]
+        },
+        "violations": [],
+        "passes": [
+          {
+            "id": "aria-allowed-attr",
+            "nodes": 17
+          },
+          {
+            "id": "aria-conditional-attr",
+            "nodes": 17
+          },
+          {
+            "id": "aria-deprecated-role",
+            "nodes": 6
+          },
+          {
+            "id": "aria-hidden-body",
+            "nodes": 1
+          },
+          {
+            "id": "aria-hidden-focus",
+            "nodes": 9
+          },
+          {
+            "id": "aria-prohibited-attr",
+            "nodes": 17
+          },
+          {
+            "id": "aria-required-attr",
+            "nodes": 6
+          },
+          {
+            "id": "aria-roles",
+            "nodes": 6
+          },
+          {
+            "id": "aria-valid-attr-value",
+            "nodes": 17
+          },
+          {
+            "id": "aria-valid-attr",
+            "nodes": 17
+          },
+          {
+            "id": "autocomplete-valid",
+            "nodes": 1
+          },
+          {
+            "id": "avoid-inline-spacing",
+            "nodes": 2
+          },
+          {
+            "id": "button-name",
+            "nodes": 6
+          },
+          {
+            "id": "bypass",
+            "nodes": 1
+          },
+          {
+            "id": "document-title",
+            "nodes": 1
+          },
+          {
+            "id": "duplicate-id-aria",
+            "nodes": 31
+          },
+          {
+            "id": "form-field-multiple-labels",
+            "nodes": 1
+          },
+          {
+            "id": "html-has-lang",
+            "nodes": 1
+          },
+          {
+            "id": "html-lang-valid",
+            "nodes": 1
+          },
+          {
+            "id": "image-alt",
+            "nodes": 17
+          },
+          {
+            "id": "label-content-name-mismatch",
+            "nodes": 2
+          },
+          {
+            "id": "label",
+            "nodes": 1
+          },
+          {
+            "id": "link-in-text-block",
+            "nodes": 1
+          },
+          {
+            "id": "link-name",
+            "nodes": 8
+          },
+          {
+            "id": "list",
+            "nodes": 1
+          },
+          {
+            "id": "meta-viewport",
+            "nodes": 1
+          },
+          {
+            "id": "nested-interactive",
+            "nodes": 9
+          },
+          {
+            "id": "target-size",
+            "nodes": 12
+          }
+        ],
+        "inapplicable": [
+          "area-alt",
+          "aria-braille-equivalent",
+          "aria-command-name",
+          "aria-input-field-name",
+          "aria-meter-name",
+          "aria-progressbar-name",
+          "aria-required-children",
+          "aria-required-parent",
+          "aria-tab-name",
+          "aria-toggle-field-name",
+          "aria-tooltip-name",
+          "blink",
+          "definition-list",
+          "dlitem",
+          "frame-focusable-content",
+          "frame-title-unique",
+          "frame-title",
+          "html-xml-lang-mismatch",
+          "input-button-name",
+          "input-image-alt",
+          "listitem",
+          "marquee",
+          "meta-refresh",
+          "object-alt",
+          "role-img-alt",
+          "scrollable-region-focusable",
+          "select-name",
+          "server-side-image-map",
+          "summary-name",
+          "svg-img-alt",
+          "td-headers-attr",
+          "th-has-data-cells",
+          "valid-lang",
+          "video-caption",
+          "no-autoplay-audio"
+        ],
+        "manual_review_items": [
+          {
+            "id": "color-contrast",
+            "targets": [
+              [
+                "a[href$=\"leafletjs.com\"]"
+              ]
+            ]
+          },
+          {
+            "id": "label-content-name-mismatch",
+            "targets": [
+              [
+                ".leaflet-control-zoom-in"
+              ],
+              [
+                ".leaflet-control-zoom-out"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "label": "final-text-spacing",
+        "created_at": "2026-11-22T03:36:34.854Z",
+        "axe_version": "4.14.1",
+        "url": "http://localhost:8091/#mapa",
+        "measurements": {
+          "viewport": {
+            "width": 320,
+            "height": 850
+          },
+          "overflow": false,
+          "smallTargets": [],
+          "headings": [
+            {
+              "level": "H1",
+              "text": "Mapa defibrylatorów"
+            },
+            {
+              "level": "H2",
+              "text": "Nie wiesz, czy użyć AED? Sprawdź w 2 pytaniach"
+            },
+            {
+              "level": "H3",
+              "text": "Czy osoba reaguje, gdy głośno mówisz i delikatnie potrząsasz za ramię?"
+            },
+            {
+              "level": "H2",
+              "text": "Znajdź otwarty defibrylator"
+            },
+            {
+              "level": "H2",
+              "text": "Otwarte urządzenia"
+            },
+            {
+              "level": "H2",
+              "text": "Mapa defibrylatorów"
+            }
+          ]
+        },
+        "violations": [],
+        "passes": [
+          {
+            "id": "aria-allowed-attr",
+            "nodes": 17
+          },
+          {
+            "id": "aria-conditional-attr",
+            "nodes": 17
+          },
+          {
+            "id": "aria-deprecated-role",
+            "nodes": 6
+          },
+          {
+            "id": "aria-hidden-body",
+            "nodes": 1
+          },
+          {
+            "id": "aria-hidden-focus",
+            "nodes": 9
+          },
+          {
+            "id": "aria-prohibited-attr",
+            "nodes": 17
+          },
+          {
+            "id": "aria-required-attr",
+            "nodes": 6
+          },
+          {
+            "id": "aria-roles",
+            "nodes": 6
+          },
+          {
+            "id": "aria-valid-attr-value",
+            "nodes": 17
+          },
+          {
+            "id": "aria-valid-attr",
+            "nodes": 17
+          },
+          {
+            "id": "autocomplete-valid",
+            "nodes": 1
+          },
+          {
+            "id": "avoid-inline-spacing",
+            "nodes": 2
+          },
+          {
+            "id": "button-name",
+            "nodes": 6
+          },
+          {
+            "id": "bypass",
+            "nodes": 1
+          },
+          {
+            "id": "document-title",
+            "nodes": 1
+          },
+          {
+            "id": "duplicate-id-aria",
+            "nodes": 31
+          },
+          {
+            "id": "form-field-multiple-labels",
+            "nodes": 1
+          },
+          {
+            "id": "html-has-lang",
+            "nodes": 1
+          },
+          {
+            "id": "html-lang-valid",
+            "nodes": 1
+          },
+          {
+            "id": "image-alt",
+            "nodes": 17
+          },
+          {
+            "id": "label-content-name-mismatch",
+            "nodes": 2
+          },
+          {
+            "id": "label",
+            "nodes": 1
+          },
+          {
+            "id": "link-in-text-block",
+            "nodes": 1
+          },
+          {
+            "id": "link-name",
+            "nodes": 8
+          },
+          {
+            "id": "list",
+            "nodes": 1
+          },
+          {
+            "id": "meta-viewport",
+            "nodes": 1
+          },
+          {
+            "id": "nested-interactive",
+            "nodes": 9
+          },
+          {
+            "id": "target-size",
+            "nodes": 12
+          }
+        ],
+        "inapplicable": [
+          "area-alt",
+          "aria-braille-equivalent",
+          "aria-command-name",
+          "aria-input-field-name",
+          "aria-meter-name",
+          "aria-progressbar-name",
+          "aria-required-children",
+          "aria-required-parent",
+          "aria-tab-name",
+          "aria-toggle-field-name",
+          "aria-tooltip-name",
+          "blink",
+          "definition-list",
+          "dlitem",
+          "frame-focusable-content",
+          "frame-title-unique",
+          "frame-title",
+          "html-xml-lang-mismatch",
+          "input-button-name",
+          "input-image-alt",
+          "listitem",
+          "marquee",
+          "meta-refresh",
+          "object-alt",
+          "role-img-alt",
+          "scrollable-region-focusable",
+          "select-name",
+          "server-side-image-map",
+          "summary-name",
+          "svg-img-alt",
+          "td-headers-attr",
+          "th-has-data-cells",
+          "valid-lang",
+          "video-caption",
+          "no-autoplay-audio"
+        ],
+        "manual_review_items": [
+          {
+            "id": "color-contrast",
+            "targets": [
+              [
+                "a[href$=\"leafletjs.com\"]"
+              ]
+            ]
+          },
+          {
+            "id": "label-content-name-mismatch",
+            "targets": [
+              [
+                ".leaflet-control-zoom-in"
+              ],
+              [
+                ".leaflet-control-zoom-out"
+              ]
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "manual": [
+    {
+      "test": "skip-link",
+      "result": "main"
+    },
+    {
+      "test": "keyboard-first-action",
+      "result": "Tak, osoba reaguje"
+    },
+    {
+      "test": "mobile-modal",
+      "result": "true",
+      "backgroundInert": ""
+    },
+    {
+      "test": "modal-focus-wrap",
+      "result": {
+        "inside": true,
+        "text": "Otwarte dane dane.gov.pl"
+      }
+    },
+    {
+      "test": "escape-close",
+      "result": "false",
+      "focus": "tools-toggle"
+    },
+    {
+      "test": "keyboard-focus-outline",
+      "result": {
+        "color": "rgb(0, 82, 165)",
+        "style": "solid",
+        "width": "3px"
+      }
+    },
+    {
+      "test": "cluster-standard-colors",
+      "result": {
+        "background": "rgb(18, 59, 52)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "20px",
+        "fontWeight": "800"
+      }
+    },
+    {
+      "test": "desktop-non-modal",
+      "result": "false"
+    },
+    {
+      "test": "desktop-focus-not-covered",
+      "panelExpanded": "false",
+      "focused": "search-location"
+    }
+  ],
+  "contrast_ratios": {
+    "#FFFFFF / #123B34": 12.35,
+    "#FFFFFF / #096B50": 6.5,
+    "#FFED00 / #000000": 17.37,
+    "#66768B / #FFFFFF": 4.64
+  },
+  "corrections": [
+    "Visible labels included in accessible names of font and routing controls",
+    "Desktop panel closes when focus returns to page",
+    "Emergency call link wraps at narrow widths",
+    "Long words wrap with 200% text and WCAG text spacing",
+    "Automatic refresh can be paused and preserves focused list controls",
+    "Correct heading nesting and named scrolling regions"
+  ],
+  "remaining_verification": [
+    "No NVDA or VoiceOver user session",
+    "No physical iOS/Android assistive-technology test in this review",
+    "No full WCAG AAA conformance claim",
+    "Mapping tiles and external navigation are third-party services"
+  ],
+  "regression_tests": {
+    "javascript_passed": 10,
+    "dom_scenarios_passed": 4,
+    "backend_last_passed": 70,
+    "backend_skipped_without_test_dsn": 1
+  },
+  "source_sha256": {
+    "frontend/index.html": "bc41b8a520b7faa0d3b0cc4388908cbcea8780b5ad0a8aa91a7356512d83b9d0",
+    "frontend/app.js": "1140a8cce0689b1faf92215b8ea83c7bb087f03d652eb049f0419f5c1d972be5",
+    "frontend/rescue-ui.js": "6480a1fcf63809c6346f394f46c044ed0ee03b58fc9cf723bddf628e2f03f6a9",
+    "frontend/drawer.js": "b4e6efa210224f1b10796b7fb7c0f0c04740d190c101c1d66e50442c7f22ced3",
+    "frontend/styles.css": "fe13a658fbf982c100e2a566a56b912f53a8f9ee4c210f5607427a82b8806f1a",
+    "frontend/tests/ui.check.mjs": "73a459cc5a6e9c3a68ade55d5f9ed0082fda238ccd46063cc41ebf036cf573b8"
+  }
+}

@@ -66,24 +66,20 @@ Wersja online przyjmuje pliki do 3 MiB, aby uwzględnić narzut multipart
 w standardowym limicie żądania Vercel. Import BIP z URL zachowuje limit
 pobieranego zasobu 5 MiB. Wyniki pozostają w formatach maszynowych.
 
-## Sprawdzono lokalnie
+## Stan zweryfikowany 22 listopada 2026
 
-- 61 dotychczasowych testów backendu: OK;
-- 6 nowych testów trybu chmurowego: OK;
-- 1 test z rzeczywistym PostgreSQL pominięty, bo nie skonfigurowano bazy;
-- 10 testów logiki JavaScript: OK;
-- 4 scenariusze interfejsu: mobile, desktop, QR deep link, clustering: OK;
-- pełny start z blokadą zapisu do katalogu projektu: około 2 s,
-  17 381 AED; poprzedni start zatrzymywał się po około 36 s;
-- wyszukiwanie Koszalina, źródła, audyt i QR: HTTP 200;
-- podgląd zakresów CSV/JSON/GeoJSON/XML i pełny eksport JSON 50 279 157 B;
-- biblioteki mają dostępne binarne pakiety dla Linux/Python 3.12;
-- 128 plików oryginalnego projektu sprawdzono SHA-256: bez zmian.
+- Produkcyjny HTTPS: https://otwarte-aed.vercel.app/.
+- `/api/health`: ready=true, records=17381, cloud.mode=postgresql, writes_enabled=true.
+- Neon przechowuje zgłoszenia, importy i migawkę; inne instancje odczytują wspólną wersję.
+- Sprawdzono zapis testowego nieaktywnego importu i synchronizację bez fałszowania zgłoszeń realnych AED.
+- 70 testów backendu zaliczonych; jeden test integracyjny bez lokalnego DSN pominięty.
+- 10 testów logiki JavaScript i cztery scenariusze interfejsu zaliczone.
+- Publiczny XML przechodzi walidację względem aktualnego XSD 1.13 dane.gov.pl.
+- Przegląd WCAG 2.2 A/AA, rozmiary ekranu, poprawki i ograniczenia: `audyt_dostepnosci.md`.
 
-To testy lokalne, z symulacją ograniczeń systemu plików Vercel. Poprawka
-nie została wysłana na GitHub ani opublikowana automatycznie przez agenta.
-Rzeczywiste połączenie PostgreSQL wymaga podłączenia bazy i osobnej weryfikacji.
-To nadal prototyp hackathonowy; nie zastępuje dyspozytora numeru 112.
+Sekcje powyżej opisują konfigurację od zera; hosting i baza w obecnym projekcie
+są już podłączone. Nie kopiuj sekretów DATABASE_URL do repozytorium ani paczki konkursowej.
+To prototyp hackathonowy; nie zastępuje dyspozytora numeru 112.
 
 Dokumentacja:
 - https://vercel.com/docs/functions/runtimes/python

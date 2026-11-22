@@ -2,6 +2,7 @@
 from pathlib import Path
 from io import BytesIO
 import json
+import os
 import sys
 from zipfile import ZipFile
 import requests
@@ -31,16 +32,22 @@ SW,SH=13.333333,7.5
 FILES=['01_zrodla.png','02_wzorzec.png','03_mapa.png','04_dysponent_qr.png','05_eksport.png']
 
 def read_evidence():
+    base=os.getenv('AED_EVIDENCE_BASE_URL','https://otwarte-aed.vercel.app').rstrip('/')
     try:
-        response=requests.get('http://127.0.0.1:8000/api/sources/stats',timeout=5);response.raise_for_status();data=response.json()
+        response=requests.get(base+'/api/sources/stats',timeout=30);response.raise_for_status();data=response.json()
+        health=requests.get(base+'/api/health',timeout=30);health.raise_for_status();runtime=health.json()
         result={k:data.get(k) for k in ('osm_records','danegov_records','duplicates_merged','integrated_records','cross_source_groups','generated_at')}
         result['datasets']=[{k:d.get(k) for k in ('id','title','institution_title','records_count','status')} for d in data.get('datasets',[])]
-        (ROOT/'docs/dane_prezentacji.json').write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf-8')
+        result['public_url']=base
+        result['cloud']={k:runtime.get('cloud',{}).get(k) for k in ('mode','writes_enabled','snapshot_revision','runtime_version','commit')}
+        result['retrieved_at']=data.get('danegov',{}).get('retrieved_at')
+        (ROOT/'docs/dane_prezentacji.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
         return result
     except (requests.RequestException,ValueError):
         path=ROOT/'docs/dane_prezentacji.json'
         if path.exists():return json.loads(path.read_text(encoding='utf-8'))
-        raise RuntimeError('Uruchom aplikację, aby pobrać rzeczywiste liczby do prezentacji.')
+        raise RuntimeError('Brak pomiaru działającej aplikacji i lokalnego zapisu liczb.')
+
 
 def rgb(value):return RGBColor.from_string(value.lstrip('#'))
 
@@ -108,7 +115,11 @@ class Deck:
         source=SCREENSHOTS/FILES[index]
         if source.exists():
             iw,ih=Image.open(source).size
-            if iw/ih<.9 and index in (0,3,4):
+            if index==4 and iw/ih>=.9:
+                self.picture_view(source,(x,y,2.55,h),(.50,0,1,1))
+                self.picture_view(source,(8.0,2.02,4.6,3.85),(.55,.25,.96,.61))
+                self.text('Publiczny URL zasobu w XML',8.0,6.02,4.6,.25,size=11,color=SLATE)
+            elif iw/ih<.9 and index in (0,3,4):
                 self.picture_view(source,(x,y,2.55,h))
                 region={0:(0,0,1,.31),3:(.02,.63,.98,.94),4:(.02,.25,.96,.81)}[index]
                 self.picture_view(source,(8.0,2.02,4.6,3.85),region)
@@ -160,7 +171,7 @@ class Deck:
 
 def build():
     stats=read_evidence();d=Deck();d.start()
-    evidence_note=('Prezentacja zawiera pięć rzeczywistych zrzutów prototypu przekazanych przez zespół.'
+    evidence_note=('Prezentacja zawiera pięć rzeczywistych zrzutów zebranych podczas testów prototypu.'
                    if all((SCREENSHOTS/name).exists() for name in FILES)
                    else 'Materiał roboczy: brakujące zrzuty należy uzupełnić przed zgłoszeniem.')
     d.text('MISJA AED  /  DANE NA RATUNEK',.77,.72,11,.3,size=12,bold=True,color=SLATE)
@@ -177,11 +188,11 @@ def build():
     d.text(f"{fmt(stats['osm_records'])} obiektów OpenStreetMap\n{fmt(stats['danegov_records'])} rekordów z dane.gov.pl\n{fmt(stats['duplicates_merged'])} scaleń przy odległości <25 m",.78,3.85,4.3,1.5,size=17)
     d.text('Krosno 3624 · Przemyśl 4581\nMarki 4955 · Warszawa 39512*',.78,5.68,4.3,.7,size=15,color=SLATE)
     d.evidence(0,'POŁĄCZONE ŹRÓDŁA I LICZNIKI')
-    d.text('*Warszawa: 0 rekordów; zasób zwraca HTML.',.78,6.25,4.3,.3,size=11,color=SLATE)
-    for label,x in [('Źródła',.78),('Cache + 21 pól',3.82),('Baza FastAPI',7.01),('Eksport / XSD',10.35)]:
-        d.text(label,x,6.72,2.45,.36,size=17,bold=True)
-    for x1,x2 in [(2.15,3.66),(5.96,6.85),(9.04,10.18)]:d.line(x1,6.88,x2,6.88,RED,1.4,arrow=True)
-    d.notes('Źródło liczb: GET /api/sources/stats, zapis docs/dane_prezentacji.json. OSM 18307 + dane.gov.pl 49 - 975 scaleń = 17381. Zasoby Krosna: 21 rekordów, Przemyśla: 21, Marek: 7 (6 punktów po deduplikacji). *Warszawa jest odnaleziona, ale jej wskazany plik zwraca HTML zamiast danych: 0 zintegrowanych rekordów. Źródła pozostają w każdym rekordzie. Diagram architektury: OSM/API instytucji → normalizacja 21 pól i Haversine → migawka FastAPI → eksport/harvester. Import BIP trafia do osobnego podglądu, a nie automatycznie do zbioru ratunkowego.')
+    d.text('*Warszawa: 0 rekordów; zasób niedostępny.',.78,6.25,4.3,.3,size=11,color=SLATE)
+    for label,x in [('Źródła',.78),('Cache + 21 pól',3.82),('FastAPI + PostgreSQL',7.01),('Eksport / XSD',10.35)]:
+        d.text(label,x,6.72,2.45,.36,size=15,bold=True)
+    for x1,x2 in [(2.15,3.66),(5.96,6.85),(9.55,10.18)]:d.line(x1,6.88,x2,6.88,RED,1.4,arrow=True)
+    d.notes('Źródło liczb: GET /api/sources/stats, zapis docs/dane_prezentacji.json. OSM 18307 + dane.gov.pl 49 - 975 scaleń = 17381. Zasoby Krosna: 21 rekordów, Przemyśla: 21, Marek: 7 (6 punktów po deduplikacji). *Warszawa jest odnaleziona, ale jej wskazany zasób nie dostarczył poprawnej tabeli: 0 zintegrowanych rekordów. Źródła pozostają w każdym rekordzie. Diagram architektury: OSM/API instytucji → normalizacja 21 pól i Haversine → migawka FastAPI → eksport/harvester. Import BIP trafia do osobnego podglądu, a nie automatycznie do zbioru ratunkowego.')
 
     d.start('Wspólny standard danych','Wzorzec XLSX i walidacja')
     d.text('21 pól',.77,1.98,4.1,.9,size=51,bold=True,color=RED)
@@ -202,14 +213,14 @@ def build():
     d.text('1. Wgrywa plik CSV/XLSX lub BIP\n\n2. Poprawia błędy z raportu\n\n3. Pobiera dane CSV lub JSON',.78,2.03,4.25,2.9,size=18,bold=True)
     d.text('Plakietka z kodem QR prowadzi\ndo karty konkretnego urządzenia.\nŚwiadek może zgłosić jego stan.',.78,5.58,4.3,1.0,size=17,color=SLATE)
     d.evidence(3,'GENERATOR QR LUB WALIDACJA PLIKU')
-    d.notes('Źródła: backend/chaos_import.py, features_api.py, feature_store.py. PDF/HTML/CSV/XLSX/JSON/GeoJSON/XML na wejściu, 21 pól na wyjściu. Limity: 5 MiB, 500 rekordów, 20 stron PDF; brak OCR skanów. Opcjonalnie 5 geokodowań adresów. QR powstaje lokalnie przez qrcode i prowadzi do /?aed=ID. Przed drukiem musi wskazywać publiczny adres HTTPS. Zgłoszenia są anonimowe, zapisane w SQLite; nie zastępują kontroli dysponenta. Logo i hasło zachęcają do otwierania danych.')
+    d.notes('Źródła: backend/chaos_import.py, features_api.py, feature_store.py. PDF/HTML/CSV/XLSX/JSON/GeoJSON/XML na wejściu, 21 pól na wyjściu. Limity online: upload 3 MiB, import BIP do 500 rekordów i 20 stron PDF; brak OCR skanów. Pobranie BIP z URL ma limit 5 MiB. Opcjonalnie 5 geokodowań adresów. QR powstaje lokalnie przez qrcode i prowadzi do /?aed=ID. Przed drukiem musi wskazywać publiczny adres HTTPS. Zgłoszenia są anonimowe; wersja online zapisuje je trwale w PostgreSQL (Neon), a wersja lokalna używa SQLite. Nie zastępują kontroli dysponenta. Logo i hasło zachęcają do otwierania danych.')
 
-    d.start('Publikacja i ograniczenia','Gotowość prototypu')
-    d.text('CSV · JSON · GeoJSON\nXML harvestera (XSD 1.13)\nAudyt instytucji: 0–100 pkt',.78,2.05,4.3,1.8,size=20,bold=True)
-    d.text('Przed wdrożeniem:\n\nPubliczny hosting HTTPS\nWeryfikacja danych u dysponentów\nModeracja zgłoszeń i monitoring\nPełny audyt WCAG i testy urządzeń',.78,4.25,4.35,2.35,size=17,color=SLATE)
+    d.start('Działający prototyp online','Wdrożenie i ograniczenia')
+    d.text('HTTPS / Vercel\nPostgreSQL: trwały zapis\nCSV / JSON / GeoJSON\nXML harvestera (XSD 1.13)',.78,2.05,4.3,1.8,size=19,bold=True)
+    d.text('Zakres i ograniczenia:\nNiepełne pokrycie i braki źródeł\nCzas marszu jest szacunkiem\nPrzegląd WCAG 2.2 opisany w raporcie\nPublikacja w portalu wymaga dysponenta',.78,4.25,4.35,2.35,size=16,color=SLATE)
     d.evidence(4,'EKSPORT DANYCH I METADANYCH')
     d.text('Zbiór połączony zachowuje ODbL i oznaczenia źródeł.',5.25,6.68,7.35,.35,size=12,color=SLATE)
-    d.notes('Źródła: backend/harvester_export.py, danegov_client.py, quality_audit.py. Czytanie JSON:API v1.4: https://api.dane.gov.pl/1.4. Publiczne API nie zapewnia tu zapisu zbioru; payload to paczka robocza, a publikacja wymaga harvestera/panelu dysponenta i publicznych URL. XML zgodny z lokalnym XSD 1.13: https://dane.gov.pl/static/xml/otwarte_dane_latest.xsd. Zbiór wzbogacony OSM zachowuje ODbL; źródła CC BY zachowują atrybucję, bez zmiany całości na CC0. Katalog instytucji ma niepełne pokrycie Polski. Deduplikacja przestrzenna wymaga kontroli w budynkach wielopiętrowych. Nie wykonano badania wpływu na czas ratowania ani pełnego audytu AAA. '+evidence_note)
+    d.notes('Źródła: backend/harvester_export.py, danegov_client.py, quality_audit.py. Czytanie JSON:API v1.4: https://api.dane.gov.pl/1.4. Publiczne API nie zapewnia tu zapisu zbioru; payload to paczka robocza, a publikacja wymaga harvestera/panelu dysponenta i publicznych URL. XML zgodny z lokalnym XSD 1.13: https://dane.gov.pl/static/xml/otwarte_dane_latest.xsd. Zbiór wzbogacony OSM zachowuje ODbL; źródła CC BY zachowują atrybucję, bez zmiany całości na CC0. Katalog instytucji ma niepełne pokrycie Polski. Deduplikacja przestrzenna wymaga kontroli w budynkach wielopiętrowych. Wersja online działa pod https://otwarte-aed.vercel.app. PostgreSQL (Neon) przechowuje zgłoszenia, importy i wspólną migawkę. Przegląd WCAG 2.2 A/AA, poprawki i ograniczenia są opisane w docs/audyt_dostepnosci.md; nie jest to deklaracja pełnego AAA. Nie wykonano badania wpływu na czas ratowania. Moderacja i testy z użytkownikami technologii asystujących pozostają dalszym etapem. '+evidence_note)
     d.save()
     return d
 

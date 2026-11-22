@@ -1,7 +1,12 @@
 {
+  "generated_at": "2026-11-22T03:50:23.087435+00:00",
   "presentation_slides": 6,
   "required_screenshots": 5,
   "missing_screenshots": [],
-  "ready_for_submission": true,
-  "note": "Zespół musi zatwierdzić finalną pracę. Brakujące obrazy uzupełnij zgodnie z instrukcją zrzutów."
+  "technical_package_verified": true,
+  "accessibility_review_completed": true,
+  "full_wcag_conformance_claimed": false,
+  "ready_for_team_review": true,
+  "team_approval_required": true,
+  "note": "Zespół zatwierdza autorstwo, prawa i ostateczne zgłoszenie. Zakres przeglądu WCAG opisano w docs/audyt_dostepnosci.md."
 }
