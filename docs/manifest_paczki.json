@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T06:20:05.245212+00:00",
+  "generated_at": "2026-11-22T06:28:58.534944+00:00",
   "algorithm": "SHA-256",
   "note": "Manifest opisuje wszystkie pliki paczki poza samym manifestem.",
   "files": [
@@ -17,16 +17,6 @@
       "path": "Dockerfile",
       "bytes": 1137,
       "sha256": "b33f96ff0a66a6aad0808bb83278437ffda51a9e18736d7967f942089213c067"
-    },
-    {
-      "path": "GENERUJ_PREZENTACJE.cmd",
-      "bytes": 1079,
-      "sha256": "634e3c3b420f66189b585ca0b3e5250b8a7f807aafb69edadfd8a2555ae96e49"
-    },
-    {
-      "path": "INSTRUKCJA_WGRANIA_NA_GITHUB.txt",
-      "bytes": 1168,
-      "sha256": "d4db9260ec5e0632642b6d6989e4029f77f8a937901d05d21a1b9a8ccbde3bb4"
     },
     {
       "path": "README.md",
@@ -435,8 +425,8 @@
     },
     {
       "path": "docs/spakuj_materialy.py",
-      "bytes": 6492,
-      "sha256": "c6ea8439ce2af9b80d695d6bbd49676c8eaa3117b5f4034ae92d2e76624e3d50"
+      "bytes": 6431,
+      "sha256": "3c98d1ae569e6729affc1cb3fce2b50cc79bf617aa3f8ff20462159bb7420709"
     },
     {
       "path": "docs/standard_danych_aed.md",
@@ -446,7 +436,7 @@
     {
       "path": "docs/status_materialow.json",
       "bytes": 480,
-      "sha256": "e3d28170ff481db9db16de9525bdfd69d8a39c0df3f9143d82526fb5d2bfa455"
+      "sha256": "fbbd50909d52d1c1223e38d0023981d2da96ded9cee1b63887514fd59546e96e"
     },
     {
       "path": "docs/zrzuty_ekranu/01_zrodla.png",
@@ -475,8 +465,8 @@
     },
     {
       "path": "docs/zrzuty_ekranu/INSTRUKCJA.md",
-      "bytes": 1417,
-      "sha256": "ad4a3b3fc819d6fee9950ddf2e2a5be3bab73a472f1a95897d251c18045c775c"
+      "bytes": 1351,
+      "sha256": "6c2ef3a8023a7a2565252afa14e74f301b64102d066928c43273768238d284fd"
     },
     {
       "path": "frontend/README.md",

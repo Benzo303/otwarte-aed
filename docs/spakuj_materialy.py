@@ -10,8 +10,8 @@ ROOT = Path(__file__).resolve().parents[1]
 EXPECTED = ['01_zrodla.png','02_wzorzec.png','03_mapa.png','04_dysponent_qr.png','05_eksport.png']
 ROOT_FILES = ['README.md','requirements.txt','requirements-lock.txt','Dockerfile','.dockerignore',
               '.gitignore','compose.yaml','uruchom_aed.py','START_AED.cmd','STOP_AED.cmd',
-              'START_DOCKER.cmd','STOP_DOCKER.cmd','START_TELEFON.cmd','GENERUJ_PREZENTACJE.cmd',
-              'app.py','pyproject.toml','vercel.json','INSTRUKCJA_WGRANIA_NA_GITHUB.txt']
+              'START_DOCKER.cmd','STOP_DOCKER.cmd','START_TELEFON.cmd',
+              'app.py','pyproject.toml','vercel.json']
 REQUIRED = ['app.py','pyproject.toml','vercel.json','backend/cloud_runtime.py','backend/cloud_store.py',
             'backend/cloud_archive.py','backend/cloud_responses.py','backend/vercel_build.py',
             'backend/data/deployment/vercel_seed.zip','frontend/index.html','frontend/app.js',
