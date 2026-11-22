@@ -13,12 +13,10 @@ Zapisz obrazy PNG w tym katalogu (najlepiej okno 1600 × 900 lub większe):
    i wygeneruj tabliczkę; alternatywnie pokaż raport walidacji w strefie dysponenta.
 5. `05_eksport.png`: Pomoc → Otwarte dane → podgląd JSON lub XML harvestera.
 
-Następnie kliknij dwukrotnie `GENERUJ_PREZENTACJE.cmd` w głównym folderze
-`misja-aed`. Starter sam wybierze właściwy katalog i `.venv`.
-Alternatywnie w PowerShell:
+Następnie otwórz PowerShell w głównym folderze rozpakowanego projektu.
+Środowisko `.venv` przygotowuje `START_AED.cmd`; po jego utworzeniu wykonaj:
 
 ```powershell
-cd "C:\Users\Dominik\Documents\ChatGPT\misja-aed"
 .\.venv\Scripts\python.exe docs\generuj_prezentacje_otwarte_aed.py
 ```
 
